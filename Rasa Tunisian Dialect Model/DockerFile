@@ -1,0 +1,14 @@
+FROM python:3.8-slim
+
+RUN python -m pip install rasa
+RUN pip install catboost
+
+WORKDIR /app
+ENV HOME=/app
+COPY . .
+
+USER 1001
+
+ENTRYPOINT ["rasa"]
+
+CMD ["run"]

@@ -1,0 +1,144 @@
+
+<html>  
+<head>
+<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+<script src="https://js.api.here.com/v3/3.1/mapsjs-core.js"type="text/javascript" charset="utf-8"></script>
+<script src="https://js.api.here.com/v3/3.1/mapsjs-service.js"type="text/javascript" charset="utf-8"></script>
+<script src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js" type="text/javascript" charset="utf-8"></script>
+<script src="https://js.api.here.com/v3/3.1/mapsjs-ui.js" type="text/javascript" charset="utf-8"></script>
+<link rel="stylesheet" type="text/css"href="https://js.api.here.com/v3/3.1/mapsjs-ui.css" />
+</head>
+  
+<body style='margin: 0'>
+<div style="width: 100%; height: 100%" id="mapContainer"></div>
+
+<script>	
+      // Initialize the platform object:
+      var platform = new H.service.Platform({
+        'apikey': '{{apikey}}'
+      });
+	  
+	   const lat = {{latitude}};
+	   const lng = {{longitude}};
+	   
+	   const bankOne_lat = {{oneLatitude}}; 
+	   const bankOne_lng = {{oneLongitude}};
+
+	   const bankTwo_lat = {{twoLatitude}}; 
+	   const bankTwo_lng = {{twoLongitude}};
+
+	   const bankThree_lat = {{threeLatitude}}; 
+	   const bankThree_lng = {{threeLongitude}};
+
+	   const bankFour_lat = {{fourLatitude}}; 
+	   const bankFour_lng = {{fourLongitude}};
+
+	   const bankFive_lat = {{fiveLatitude}}; 
+	   const bankFive_lng = {{fiveLongitude}};	   
+	
+	// Obtain the default map types from the platform object
+      var maptypes = platform.createDefaultLayers();
+
+      // Initialize a map:
+      var map = new H.Map(
+        document.getElementById('mapContainer'),
+        maptypes.raster.terrain.map,
+        {
+          zoom: 15,
+          center: { lat: lat, lng: lng }  
+        });
+		
+	// Enable the event system on the map instance:
+	  var mapEvents = new H.mapevents.MapEvents(map);
+	
+	// Instantiate the default behavior, providing the mapEvents object:
+	 var behavior = new H.mapevents.Behavior(mapEvents);
+
+	var myLocation_marker = new H.map.Marker({ lat: lat, lng: lng });
+	var bankOne_marker = new H.map.Marker({ lat: bankOne_lat, lng: bankOne_lng });
+	var bankTwo_marker = new H.map.Marker({ lat: bankTwo_lat, lng: bankTwo_lng });
+	var bankThree_marker = new H.map.Marker({ lat: bankThree_lat, lng: bankThree_lng });
+	var bankFour_marker = new H.map.Marker({ lat: bankFour_lat, lng: bankFour_lng });
+	var bankFive_marker = new H.map.Marker({ lat: bankFive_lat, lng: bankFour_lng });
+		
+	// Add the marker to the map:
+	map.addObject(myLocation_marker);
+	map.addObject(bankOne_marker);
+	map.addObject(bankTwo_marker);
+	map.addObject(bankThree_marker);
+	map.addObject(bankFour_marker);
+	map.addObject(bankFive_marker);
+	
+	// Create the default UI:
+	var ui = H.ui.UI.createDefault(map, maptypes);
+	
+	// Add event listener to the marker:
+	myLocation_marker.addEventListener('tap', function(evt) {
+    
+		// Create an info bubble object at a specific geographic location:
+		//var bubble = new H.ui.InfoBubble({ lng: lng, lat: lat }, {
+              //  content: ''
+           //  });
+		//bubble.setContent('<div style="height: 130px; overflow: auto; width: 270px;"><h3>"Hi"</h3><p>"This is you!"</p></div>');
+		// Add info bubble to the UI:
+		//ui.addBubble(bubble);
+	});	
+	
+bankOne_marker.addEventListener('tap', function(evt) {
+    
+		// Create an info bubble object at a specific geographic location:
+		var bubble = new H.ui.InfoBubble({ lng: bankOne_lng, lat: bankOne_lat }, {
+                content: ''
+             });
+		bubble.setContent('<div style="height: 130px; overflow: auto; width: 270px;"><h3>{{oneName}}</h3><p>{{oneAddress}}</p></div>');
+		// Add info bubble to the UI:
+		ui.addBubble(bubble);
+	});
+	
+bankTwo_marker.addEventListener('tap', function(evt) {
+    
+		// Create an info bubble object at a specific geographic location:
+		var bubble = new H.ui.InfoBubble({ lng: bankTwo_lng, lat: bankTwo_lat }, {
+                content: ''
+             });
+		bubble.setContent('<div style="height: 130px; overflow: auto; width: 270px;"><h3>{{twoName}}</h3><p>{{twoAddress}}</p></div>');
+		// Add info bubble to the UI:
+		ui.addBubble(bubble);
+	});
+	
+bankThree_marker.addEventListener('tap', function(evt) {
+    
+		// Create an info bubble object at a specific geographic location:
+		var bubble = new H.ui.InfoBubble({ lng: bankThree_lng, lat: bankThree_lat }, {
+                content: ''
+             });
+		bubble.setContent('<div style="height: 130px; overflow: auto; width: 270px;"><h3>{{threeName}}</h3><p>{{threeAddress}}</p></div>');
+		// Add info bubble to the UI:
+		ui.addBubble(bubble);
+	});
+	
+bankFour_marker.addEventListener('tap', function(evt) {
+    
+		// Create an info bubble object at a specific geographic location:
+		var bubble = new H.ui.InfoBubble({ lng: bankFour_lng, lat: bankFour_lat }, {
+                content: ''
+             });
+		bubble.setContent('<div style="height: 130px; overflow: auto; width: 270px;"><h3>{{fourName}}</h3><p>{{fourAddress}}</p></div>');
+		// Add info bubble to the UI:
+		ui.addBubble(bubble);
+	});
+	
+bankFive_marker.addEventListener('tap', function(evt) {
+    
+		// Create an info bubble object at a specific geographic location:
+		var bubble = new H.ui.InfoBubble({ lng: bankFive_lng, lat: bankFive_lat }, {
+                content: ''
+             });
+		bubble.setContent('<div style="height: 130px; overflow: auto; width: 270px;"><h3>{{fiveName}}</h3><p>{{fiveAddress}}</p></div>');
+		// Add info bubble to the UI:
+		ui.addBubble(bubble);
+	});
+
+</script>
+</body>
+</html>

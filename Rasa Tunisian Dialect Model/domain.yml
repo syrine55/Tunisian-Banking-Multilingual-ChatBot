@@ -1,0 +1,242 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - feedback
+  - complaint
+  - bot_challenge
+  - loan_car
+  - loan_land
+  - loan_house
+  - loan
+  - account
+  - payment
+  - card
+  - demande_info
+  - application
+  - projet_loan
+  - documents_loan
+  - hajj
+  - loan_education
+  - 9assan_9ardh
+  - transfer_loan
+  - demande_info_card
+  - demande_info_time
+  - tafrika
+  - angry
+  - request_credit_risk_slots
+  - credit_risk
+
+entities:
+  - duration_in_month
+  - credit_amount
+  - present_residence_since
+  - number_credit
+  - number_people_maintenance
+slots:
+  duration_in_month:
+    type: any
+    influence_conversation: false
+    mappings: 
+    - type: from_entity
+      entity: duration_in_month
+  credit_amount:
+    type: any
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: credit_amount
+  present_residence_since:
+    type: any
+    influence_conversation : false
+    mappings:
+    - type: from_entity
+      entity: present_residence_since
+  number_credit:
+    type: any
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: number_credit
+  number_people_maintenance:
+    type: any
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: number_people_maintenance
+
+  risk:
+    type: any
+    influence_conversation: false
+    mappings:
+    - type: custom
+      action: credit_risk_classifier
+  
+
+
+responses:
+  utter_credit_risk_slots:
+  - text: "{duration_in_month}, {credit_amount}, {present_residence_since}, {number_credit}, {number_people_maintenance}"
+  utter_ask_duration_in_month:
+  - text: "3ala 9addech min chhar tnajjem tkhalles el credit ?"
+  utter_ask_credit_amount:
+  - text: "9adesh theb credit ?"
+  utter_ask_continue:
+  - text: "mazelt theb tkamel ?"
+  utter_submit:
+  - text: "OK, 3ala ethallin 2emin"
+  utter_risk_value:
+  - text: "{risk}"
+  utter_ask_number_credit:
+  - text: "9adesh men credit andek ?"
+  utter_ask_number_people_maintenance:
+  - text: "9adesh men ensen inajem ikhales alik 9ardh w yodhmen fik ken enti ma khalastesh ?"
+  utter_ask_present_residence_since:
+  - text: "9adesh andek men 3am wenti seken fel bled?"
+
+
+  utter_greet:
+  - text: "عسلامة، فاش انجم نعاونك ؟"
+  - text: "Sbeh ennour ya behi enti owl client lyoum wena 3amel bon kif. kifeh najem naawnek?"
+
+  utter_help:
+  - text: "تحب نعاونك ؟"
+  - text: "Naajem naawnek fi haja?"
+
+  utter_ok:
+  - text: "على راحتك"
+  - text: "ala rahtek khouya / okhti l behya"
+
+  utter_goodbye:
+  - text: "بسلامة"
+  - text: "beslemaa w nharek zin !"
+
+  utter_tafrika:
+  - text: "Famma 3zamm ??"
+  - text: "Heznni lllari !!"
+  - text: "hala ya rommana wel 7elwe za3lanaaa minn hayradihaa wi7en aliha , bojji yetlhe bihaaaaaaaaaa"
+  - text: "ala khatrek ya sourour chagit bhour w brour"
+  - text: "sbeh nour wel 3anbar, momken ennambar ;) ?"
+  
+  utter_angry:
+  - text: "hala ya rommana wel 7elwe za3lanaaa minn hayradihaa wi7en aliha , bojji yetlhe bihaaaaaaaaaa"
+
+  utter_complaint:
+  - text: "مرحبًا سيدي ، نأسف للإزعاج الذي تسبب به وندعوك لترك لنا تفاصيل الاتصال الخاصة بك في رسالة ، حتى نتمكن من الاتصال بك ، والعناية بمشكلتك"
+  - text: " Khouya merci elli kalamtna w désolé al 9la9 tnajem tkalamna 3al 51981xxx besh najmou naawnouk akther w nheloulek moshkeltek "
+
+  utter_feedback:
+  - text: "شكرا على ثقتك في مؤسستنا البنكية"
+  - text: "حريفنا الكريم, شكرا على ثقتكم في خدماتنا. في حالة نشوب أي مشكلة يرجى الذهاب إلى أقرب فرع  لكم و شكرا"
+  - text: "merci al feedback hedha kol najmoush namlouh meghir thi9etkom fina!"
+  
+  utter_loan_land:
+  - text: "تمويل موجّه للموظفين ومهنيين تمويل مباشر يمكن أن يصل إلى % 80 من مخطط التّمويل قيمة تمويل عالية تحدّد حسب قدرة السدادفترة تسديد مرنة يمكن أن تصل إلى 20 سنة."
+  - text: "Tamwil direct pour les employés ynajem yousel l 80% mel plan de financement.Valeur hethi tet7aded 7asb 9odrtek bech t5ales le crédit mte3ek fi période tnajem tousel l 20 sne "
+  utter_loan_house:
+  - text: "عسلامة ، Bojji يوفرلك تمويل منزل تمويل مباشر يوصل ل % 80 من مخطط التّمويل قيمة تمويل عالية تحدّد حسب قدرة السداد. فترة تسديد مرنة توصل ل 20 سنة بالنسبة للتمويل الذاتي ابتداء ا من 20 % من كلفة الشراء.مرحبا بيك"
+  - text: "Asslema, Ywaferlek tamwil hetha 9imet tamwil 3alia  "
+  utter_loan_car:
+  - text: "عسلامة، بالنسبة لتمويل سيارة، يقوم المصرف في حالة قبول المطلب بتمويل يوصل 60٪ من قيمة الشراء تخلصها على مدة تنجم توصل 7 سنوات كانها سيارة جديدة و على 4 سنوات بالنسبة للسيارة المستعملة (لازم ما تفوتش 3 سنوات استعمال)، نراعيو قدرة الخلاص الخاصة بالحريف و الي لازم ما تتجاوزش 40٪ من الدخل الشهري. يشري المصرف السيارة أولا بإبرام عقد الشراء أول مع المالك، ثم يبيع السيارة وذلك بإمضاء عقد البيع مع الحريف المشتري. بالنسبة لل 40% تتمثل في التمويل الذاتي فهي مطلوبة تنظيمية من طرف البنك المركزي، وهي تسبقة يقدمها الحريف و تعد بمثابة دفع القسط الأول. بالنسبة للتمويل الذاتي فهيا مطلوبة تنظيمية من طرف البنك المركزي، وهي واجبة على كامل القطاع البنكي في تونس."
+  - text: "Asslema,tamwil karahba yousel l 60% 3la période tousel l 7 ans lel kraheb jdod w 4 ans lel kraheb lmosta3mla.Nra3iw la capacité de rachat du client matfoutech 40% men chahritek"
+  utter_loan:
+  - text: "عسلامة bojji، بش تتمتع بتمويل من المشروط تكون حريف بالمصرف مترسم في خدمتك وإلا صاحب مشروع .مرحبا"
+  - text: "3aslema bech tetmatte3 bi tamwil mil chourout ennek tkoyun harif bil banque, mitrassem fi khedemtik walla saheb machrou3"
+
+  utter_transfer_loan:
+  - text: " عسلامة Bojji يمكنك من تحويل قرضك في حالة تعاملك مع بنك اخر, الرجاء الإتصال بأقرب فرع لمزيد من المعلومات"
+  - text: "3aslema Bojji ymakknek min tahwil karthek fi halet ta3amlek ma3a banque ekher, al raje2 el ittisal bi akreb far3 limazid minal ma3loumet"
+
+  utter_9assan_9ardh:
+  - text: "عسلامة لمعرفة مزيد من المعلومات على إجرائات الإقتصاص الرجاء الإتصال باقرب فرع, شكرا "
+  - text: "3aslema limazid mil ma3loumet 3ala ijra2et kassan en 9routh arraje2 el ittisal bi akreb far3 w chokran"
+
+  utter_loan_education:
+  - text: " عسلامة سيدي الكريم , Bojji  يوفر لك عرض خاص للتمويلات الخاصة بالدراسة و الموجهة لالطلاب يصل إلى  % 85 من مخطط التّمويل"
+  - text: "3aslema, Bojji ywaffarlik 3arth khas lil tamwilet el khassa biddirasa, wel mouwajha lil les etudiants, tousel el 85% min moukhattet ettamwil"
+
+  utter_hajj:
+  - text: "عسلامة سيدي الكريم , Bojji  يوفر لك عرض خاص للتمويلات الخاصة بالحج و العمرة مع عدة امتيازات مع وكالات السفر "
+  - text: "3aslema, Bojji ywaffarlik 3arth khas littamwil el khas bil hajj wel 3omra m3a 3iddet imtiyezet m3a les agences de voyage"
+  utter_documents_loan:
+  - text: "عسلامة سيدي الكريم , Bojji يعلمك ان الوثائق المطلوبة للتحصل على قرض هي  طلب الاقتراض وثائق تثبت الدّخل المهني شهادة حديثة للدّخل السّنوي لا يفوت عمرها 3 أشهر"
+  - text: "3aslema, bojji ye3elmek ennou les documents bech tekhou 9arth houma talab ektirath, wathe2ik tethbet eddakhl el mihn, chhedet haditha liddakhl essanawi 3morja ma yfoutech 3 mois"
+
+  utter_projet_loan:
+  - text: "عسلامة سيدي الكريم , Bojji يوفر لكم تمويل موجه لالمشاريع الخاصة الصغرى و الكبرى و خاصة للشبان المأسسين للشركات الناشئة بدون فائض"
+  - text: "3aslema, Bojji ywafrelkom tamwil mouwajjeh lil machari3 el khassa essoghra wel kobra w khassatan lil chobben el mou2assisin lil les start ups bidoun fa2eth"
+
+  utter_application:
+  - text: "الفريق التقني في صدد العمل على تحسين التطبيق الخاص ب bojji"
+  - text: "el fari9 el tikanni ka3ed yhassen fil application elli 3and Bojji"
+  
+  utter_demande_info:
+  - text: "عسلامة لمزيد من المعلومات تنجم تتفضل بحذانا لأقرب فرع مرشد الحرفاء يهتم بطلبك و يوفرلك اكثر معلومات. مرحبا بيك"
+  - text: "Asslema bech ta3ref akther informations tnajem tetfathel ba7thena l a9reb service client bech yehtam b talab mte3ek w ywaferlek akther informations, Marhbe bik"
+  - text: "مرحبًا سيدي ،الرجاء الإتصال بأقرب فرع لك حتى نتمكن منمعالجة طلبك"
+  - text: "51981737 لمزيد من المعلومات الرجاء الاتصال بنا"
+  - text: "Pour plus d'informations kalamna 3la numéro hetha : 51 981 737"
+  - text: "www.dataspell.tn: عسلامة ، مصرفنا يوفرخدمات حسب إحتياجات الحريف أكثر تفاصيل على الموقع الإلكتروني"
+  - text: "Asslema, banka mte3na twaferlek des services 7asb les besoins de nos clients bech ta3ref akther détails chouf site mte3na:www.dataspell.tn "
+
+
+  utter_demande_info_card:
+  - text: "عسلامة, Bojji, يعلمك ان للحصول على بطاقة بنكية الرجاء الإستضهار بهاته الوثائق : بطاقة تعريف , مضمون و شهادة إقامة"
+  - text: "3aslema, Bojji ye3elmek ennou bech tethassel 3ala bitaka bankiya lezem el istethhar bil wethe2ik hethom : CIN, extrait de naissance w chhedit ikama"
+
+  utter_demande_info_time:
+  - text: "عسلامة, Bojji, يعلمك ان جميع فروعنا تفتح الوابها على الساعة الثامنة صباحا و تغلق على الساعة الخامسة مساءا"
+  - text: "3aslema, Bojji ye3lemik elli fourou3na thel mil 8:00 hatta 17:00"
+
+  utter_card:
+  - text: "هل تريد الاستفادة من مزايا بطاقة بنكية مميزة تمكنك البطاقة  من سحب المال وخلاص مشترياتك في كل وقت وبكل أريحية"
+  - text: "T7eb testfed mel carte bancaire spécial mte3na tmaknek bech tejbed flousek w t5ales fi kol wa9t"
+  - text: "يكنكم أن تتمتّعوا عن طريق بطاقة ماستركارد الوطنيّة باحتياطي شهري من النقود والذي يتم تحديده وفقا لراتبك الشهري أو دخلك والذي يُضاف إلى الحد الأقصى اقوم بعمليات الدفع لديك (بأداة الدفع الإلكتروني أو عبر الانترنت)
+تقوم بالسحب نقدا من الصّراف الآلي للأوراق النقديّة في تونس 24/24 ساعة و7/7 أيام
+تسديد فواتيرك عبر الانترنت (فاتورة الكهرباء والغاز، فاتورة التزوّد بالماء، فاتورة الهاتف...)"
+ 
+
+
+  utter_payment:
+  - text: "عسلامة, Bojji, في ما يخص خلاص الرواتب نعلمك انها تصرف في اخر الشهر الجاري و لمزيد من المعلومات حول وضع حسابكم الرجاء الاتصال باقرب فرع لك"
+  - text: "3aslema, Bojji fi ma y5os khlas echhari ne3lmouk ennha tetesraf fi ekher el chhar el jeri w li mazid mil ma3loumet hawl hisebik arraje2 el ittisal bi akreb far3 liik"
+
+  utter_account:
+  - text: "يمكن فتح الحساب من طرف أي شخص طبيعي مقيم بالبلاد التونسية لاحتياجات شخصية (أفراد ومهنيين). كما يمكن لأي شخص معنوي ذو نشاط غير ربحي (الجمعيات، والأندية ....) استخدام هذا الحساب لأغراض غير تجارية و يمكّنك هذا الحساب من توطين رواتبك و مداخيلك, إدارة معاملاتك اليوميّة , تسلّم التحويلات والقيام بعمليّات الإيداع, خلاص مختلف تعهّداتك, التمتع بوسائل الدفع كدفاتر الشيكات و البطاقات البنكيّة"
+  - text: "Tnajem t7el compte wenti mou9im fi tounes pour des raisons personnelles.Kima tnajem testa3mel l compte hetha pour des fins non commercials itha ken enti tmathel une association wala club,tsob chahria mte3ek w tetsaref f les transactions quotidiennes mte3ek.Bien sur tnajem ta3mel des virements w des versements bancaires w t5alles avec les chéquiers et les cartes bancaires "        
+  utter_iamabot:
+  - text: "I am a BOJJI, powered by Dataspell .at your service ;) "
+
+  utter_ask_feedback:
+  - text: "Theb ta3ti feedback ?"
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+
+actions:
+  - credit_risk_classifier
+  - utter_risk_value
+  - utter_ask_contiune 
+  - utter_credit_risk_slots
+  - utter_submit
+  - validate_credit_risk_form
+  - utter_ask_duration_in_month
+  - utter_ask_present_residence_since
+  - utter_ask_number_people_maintenance
+  - utter_ask_number_credit
+  - utter_ask_credit_amount
+  - action_tell_id
+
+forms:
+  credit_risk_form:
+    required_slots:
+      - duration_in_month
+      - credit_amount
+      - present_residence_since
+      - number_people_maintenance
+      - number_credit
+

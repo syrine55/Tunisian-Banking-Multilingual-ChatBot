@@ -1,0 +1,51 @@
+version: "3.1"
+
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- rule: Repeat hello as many times as the user asks
+  steps:
+  - intent: greet
+  - action: utter_greet
+
+- rule: When ever the client wants to joke
+  steps:
+  - intent: tafrika
+  - action: utter_tafrika
+
+- rule: When ever the client says 'I am angry'
+  steps:
+  - intent: angry
+  - action: utter_angry
+
+- rule: activate form
+  steps:
+  - intent: credit_risk
+  - action: credit_risk_form
+  - active_loop: credit_risk_form
+
+- rule: Submit credit_risk Form
+  condition:
+  - active_loop: credit_risk_form
+  steps:
+  - action: credit_risk_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null 
+  - action: utter_submit
+  - action: utter_credit_risk_slots
+  - action: utter_risk_value
+
+- rule: convo action_tell_id
+  steps:
+  - intent: ask_id
+  - action: action_tell_id

@@ -1,0 +1,1134 @@
+version: "3.1"
+
+nlu:
+
+- intent: affirm
+  examples: |
+    - أي
+    - أي أي
+    - ey
+
+- intent: deny
+  examples: |
+    - لا
+    - شكراً أما لا
+    - لا كهو
+    - le
+    - lee
+    - le le
+
+- lookup: car_type
+  examples: |
+    - tipo
+    - iveco
+    - fiorino
+    - kia rio berlin
+    - fiat
+    - isuzu
+    - اسيزي
+    - kia pikinto
+    - fiat forino
+    - pikanto
+    - picanto
+    - panda cros
+    - fiat tipo
+    - سوزوكي ديزير
+    - mahidra kuv
+    - ايسوزي
+    - hyundai
+    - اسوزي
+    - isuzi
+    - bmw
+    - BMW
+    - mercedes
+    - marcades
+    - marcedes
+    - honda
+    - hunda
+    - هندا
+    - هوندا
+    - polo
+    - بولو
+    - قولف
+    - فولسفاقن
+    - volsvagen
+    - volksvagen
+    - volkswagen
+    - بارتنار
+    
+
+- intent: loan_car
+  examples: |
+    - سيارة شعبية
+    - karhba sha
+    - ماهي الشروط انا كونت شركة جديدة هل يمكنني شراء سيارة علي الشركة
+    - nheb neshri karhba ala hseb sharika kifesh
+    - شنية الضمانات لي يحب يشري شاحنه نقل سيارات
+    - انا نحب انبدل كرهبة صاحب مهنة حرة اش نعمل
+    - nheb nbadel karhba kifesh namel
+    - عندي دفتر ادخار فيه مبلغ نحب نعمل قرض نشري به سيارة  كيفاش نورونا
+    - انا تكسيست نحب نبدل السيارة كفاش نعمل
+    - ena taxist nheb nbadel karhba
+    - انا صناعي في مجال البناء نحب نشري سيارة ما العمل وشكرا
+    - ena nheb neshri karhba lel khedma
+    - كيفاش تعمل باش تشري كرهبا وشنيا الشروط
+    - shneya shourout besh neshri karhba
+    - انا حريف بنك اخر هل ممكن اتحصل علي قرض سيارة مستعملة
+    - nheb ala karhba mosta3mla
+    - نحب علي قرض نشري سيارة متشي كميون نجم تعطوني قرض وشكرا
+    - ana  mawed tandif  elkafa elmihaniya  karhba wchwaya flos kifech 
+    - كيفاش نشري سيارة
+    - nheb krhba
+    - نجم نشري كميون مورد رزق
+    - nheb neshri kamioun
+    - بلهي انا عندي كريدي ونحب نخو سيارة يجي عندي الحق ولا لا بربي متقليش زور الفرع الي انتي فيه انا جيست حبيت نعرف عندي الحق واللا لا ويرحم والديكم
+    - انا عندي باتيندا صنع وبيع مرطبات ماعنديش كونت في حتي مصرف ونحب سياره نقدروالا لا
+    - حشتي بكرهب منوع كيا ريو
+    - انا نحب ناخو كرهبة نحب اكثر توضيح
+    - nheb nchri karehba isuzu  mtfoutech  wa na  charya gara wa mtrasem
+    - كيفاش نجم ناخذ كرهبة اما مانيش صاحب موسسة
+    - عندي مشروع صغير و نحب علي كرهبة شعبية
+    - rani matrasma wa  nchri karhaba kifache 
+    - هل يمكن تمويل سيارة عمرها اكثر من خمس سنوات مع العلم اني حريف ببنك الزيتونة وموظف مترسم
+    - سلام بربي نحب نعرف شنوي الاوراق المطلوبة بش نجم نشري سيارة مع العلم ليس لي حساب في مصرف الزيتونة وعندي باتيندا
+    - انا نخدم تابعة وزارة التعليم وانحب نبدل في مصرف الزيتونة ونشري سيارة نوع [isuzu]{"entity":"car_type", "group":"1"}  portes هل بامكاني ذلك شكرا
+    - ماهي اجراءات الحصول علي قرض تمويل سيارة وكم مبلغ الدفعة الاولي
+    - انا موظف من فضلكم قداش اقساط [tipo]{"entity":"car_type", "group":"1"}
+    - والي يحب يا خذ سيارة مع العلم اني حريفة عندكم
+    - نجم ناخذ سيارة بارتنار من غير تسبق اش يلزمني نعمل
+    - نجم ناخو [iveco]{"entity":"car_type", "group":"1"}
+    - انا حريف معاكم عندي  ماعنديش باتيندة وما عنديش وظيفة نجم ناخو سيارة
+    - اني صاحب مشروع و نحب نشري سيارة [fiorino]{"entity":"car_type", "group":"1"} بدفعة و لا 
+    - انا صاحب مءسسة نحب نجدد كرهبة
+    - nheb njaded karhba
+    - عندي باتيندا نحب ناخو كميون
+    - andi batinda kifeh nekhedh kmioun
+    - kifesh nekhedh taxi
+    - nheb nadi krdh taxii
+    - انا ما عندي شي و نحب علي سيارة شنوا نعمل اما نخدم و مترسم في القطاع الخاص
+    - فما سيارة علي شهرتي و بدون تسبقة
+    - famma sayara ala shahrity maghir tasb9a
+    - انا موظفة و نحب نشري سيارة  شوفو عندكم كراهب حاضرة خلي نرتاح راني تعبت نلوج علي كرهبة و كيفاش التمويل شكرا
+    - انا نخدم في مصنع نحب علي بارتنار اش يلزمني نعمل
+    - ena karhba familiale momken
+    - انا عندي باتيندة شركة ونحب نخو {"entity":"car_type", "group":"1"}[اسيزي] نجم
+    - batinda w karhba [berlingo]{"entity":"car_type", "group":"1"} malyoun momkn 
+    - ana neheb nechri sayara bel facilite w kifech nkoun cliente 
+    - هل بالامكان التمتع بالعرض و لكن نوع اخر من السيارات و ليس حصريا [fiat]{"entity":"car_type", "group":"1"}
+    - باهي انا نحب علي [isuzu]{"entity":"car_type", "group":"1"} ممكن ولا
+    - كيفاش انا نحب علي كرهبة
+    - عندي باتيندة شركة كان تعطوني سيارة من غير دفعة نحل حساب الشركة عندكم
+    - ena nhbi nchri karhba w rajle hale  w ena mtrasma najme noudhmen fyhe
+    - عندي شهادة عليا نجم نقبلهالك و تعطوني كرهبة نخدم عليها
+    - patente service w mohem yeser el karhba najem nekouha  trikim w chnouwa el procedur
+    - berlingo mawjoud
+    - اني ارملة وعندي زوز ايتام واني نخدم عندي مشروع صغير نبيع في فخار وبلستيك وتعذبت في لوجات ارجوكم نجمش نشري كرهبة ارجوكم عونوني
+    - ana batinda forfaitaire electricite w tamwul karhba
+    - انا عندي باتيندة وماعنديش تمويل ذاتي نحب نشري كرهبة كيفاش وعلي قداش من عام نخلص
+    - انا موظفة مترسمة نحب ناخذ كرهبة كيفاش واشنوة انواع الكراهب
+    - نحب نشري كرهبة انا نخدم قطاع خاص
+    - انا نحب نشري سيارة تجارية مستعملة في حدود  دينار عندي شطر المبلغ ممكن البانكة تكملي
+    - انا موظفة في قطاع الصحة نحب نشري [fiat tipo]{"entity":"car_type", "group":"1"} قداش بقداش وقداش الدفعة الاولي والاقساط كيفاش
+    - eni karehb kifch 
+    - ثم امكانية تمويل جرار فلاحي
+    - بربي نسكن في القيروان رجلي يحب يشري سياره يخدام عليه عندي دار نجم نرهنها عندكم ونشري سياره
+    - عندي باتيندة خظر وغلال ونخدم في الاسواق وعندي كرهب علي ليزنق قريب تخلص و نتعامل مع البنك التجاري ونحب نشري كرهب اخري من غير تسبقة اش نعمل
+    - موظف في القطاع العمومي غير مترسم ينجم يتمتع بعرض شراء السيارة ام لا
+    - ena mouwadhef publique nheb neshri karhba
+    - انا استاذة مدارس ابتداءية،نحب نعرف العروض صورة السيارات و النوع و الاثمان
+    - انا نحب علي كرهبة [kia rio berlin]{"entity":"car_type", "group":"1"}
+    - انا موظفة ونحب نشر ي كرهبة بقداه وكيفاش تسديد الاقساط
+    - نحب ناخذ [kia pikinto]{"entity":"car_type", "group":"1"} عندي  الف دينار في حساب ادخار بنك الزيتونة
+    - بربي انا نحب نعرف كيفاش احب نشري كرهبة
+    - كي نولي موظف لكن عندي كريدي صغير مع بانكه اخرا و نحب ناخذ كرهبا متع خدمه
+    - انا موظفة في الصحة العمومية وشريت دار عن طريق بنك الاسكان نجم نشارك معاكم في عرض السيارة حاجتي بكرهبة مع الشكر
+    - انا عندي باتيندا خضار ونحب نشري [isuzu]{"entity":"car_type", "group":"1"} هل يشملني العرض هذا
+    - راجلي يحب يشري سيارة يخدم بها يبيع سلعة
+    - انا نحب وشرب كهربة و مافما كان [panda cros]{"entity":"car_type", "group":"1"} اكهو شنوا الحل
+    - [سوزوكي ديزير]{"entity":"car_type", "group":"1"} الثمن والقسط الشهري شكرا
+    - انا موضف في وزارة المالية عندكم فيات بونتو
+    - انا تاجر متجول نحب علي [fiat forino]{"entity":"car_type", "group":"1"} بدون تسبقة
+    - belehi nheb  krhba
+    - brabi ana nheb nechri karehba taksi et  
+    - andi mahal li bayea edajej neheb nichri ala lizeg
+    - فلاح صغير نحب نشري دركتور
+    - موظف ونحب ناخذ كرهبة
+    - brabi najem nakhou moteur bil facilite w tkhalsouh w ena shahriyti tsab
+    - nheb nekhou karhba
+    - عسلامة تنجمو تشرولي كرهبة
+    - انا ماخو قرض شخصي ومازال ما اخلصش النجم ناخو سيارة عن طريق البنك
+    - nheb nchri kamyon kifch
+    - انا مترسمة ونحب نشري كرهبة اما انا منيش  حريفة معاكم  وكي تبدل معاكم نبق عامين باش نشري كرهبة
+    - نحب نشري سيارة لتنقل الي الاسواق الاسبوعية املك شهادة في الكفاءة المهنية عقد كراء شهادة ملكية ارجو منكم تسهيلات في سيارة ماهي الاوراق اللازمة
+    - سيارة شعبية
+    - نحب نشري سيارة مضخمة ومزيانة
+    - نحب نشري سيارة للعمل 
+    - nheb neshri karhba lel khedma
+    - نحب نشري كرهبة مستعملة
+    - اريد شراء درجة نارية
+    - nheb neshri moutour
+    - شاحنة نقل بضائع
+    - kamioun transport
+    - نحب نشري تراكتور
+    - نحب نشري سيارة اما مانيش حريفة بنك الزيتونة
+    - نحب نشري ديماكس اسيزي
+    - نحب سيارة كفاش نعمل باش نبدا من الصفر
+    - انا نجار نحب نشري سياره اما منيش حريف ممكن
+    - نحب نشري سيارة [mahidra kuv]{"entity":"car_type", "group":"1"}
+    - نحب نشري سيارة
+    - عندي باتيندة مقاول بناء وفلاح انحب [اسوزي]{"entity":"car_type", "group":"1"} وسيلة نقل الثمن وتسهيلاة
+    
+
+- intent: loan_house
+  examples: |
+    - najim maskan
+    - nibeni
+    - nheb nechri dar mais manich metrasma  prive
+    - السلام عليكم ورحمة الله وبركاته بربب ينجم واحد يشري سيارة من using عن طريق بنك الزيتونة الله يباركلك جاوبني
+    - بربي عندي شكون اعيش البره و حب يشري عقار في تونس عن طريق تجاري بنك كيفاش
+    - وقتاه ترجعو تعطو قروض سكن
+    - kifech il wahed iynajim iysob fi dar
+    - chahriti  d enajm nechri dar
+    - انا شهربتي  ومعمل ميرسمش نجم نشري دار وكفاش
+    - نحيب نشري دار بتقصيد
+    - نحب نشري دار انشالله كان ممكن عن طريق مصرف الزيتونة كيفاش
+    - بربي انا نحب ناخذ داركيفاش نعمل مع العلم شهريتي 
+    - ممكن قرض نكملو به الدار
+    - نحب نشري دار شنوي نعمل
+    - brabi l twa mjoubni kifch enjm   sekni
+    - انا عندي مشروع صغير نخدم في الدار ونحب تكبرو شنية 
+    - ena cliente   nichri dar najim wela le
+    - نحب نشري دار كيفاش نعمل ونجم والا
+    - انا عايش في المانيا ونحب نشري فيلاء في سوسه او الحمامات او نابل وبحب ناخذ قرظ من عندكم حوالي نستحق  م كيف نتعامل معكم
+    - اسمي مخلص البرهومي حريف عند التجاري بنك عتدي قرض في ماي  نحب ناخو قرض اخر لتحسين مسكني مع العلم الي انا موظف كيفاش نعملو شكرا
+    - ena tkmilo bch nchri dar
+    - انا نحب نشري دار
+    - بالله انا منخرط بالبنك منذ  عام او اكثر وتقدمت بطلب للحصول علي قرض وحسب ما بلغني تمت الموافقة وقمت بالاجراءات التامة ولم يبقي الا الاتمام من طرف البنك وانا في حاجة اكيدة له لاتمام تحسين المسكن ارجوا من جنابكم الاجابة في اقرب وقت ممكن وشكر
+    - بالله انا موظفة بوزارة التربية ارغب في شراء منزل هل هذا ممكن معكم وماهي الڜروط وماهو المبلغ المقدم من جنابكم وشكرا ارجو الاجابة
+    - نحب نشري دار منيش متوظف
+    - انا نحب ناخو قرض نبني بيه نخدم في معمل اما منيش مترسم زعم طعتوني قرض
+    - قداش لازم اقل حاجة شهرية باش نخو قرض تحسين مسكن
+    - انحب انحاسين في داري كيفاش نتصل بيكم
+    - انا نخدم ومترسم و عندي قرض في بنك اخري نجم ناخذ من عندكم قرض بناء
+    - kifch najem nechri dar
+    - ena enjm nzid bch nchri dar
+    - الي شهريتوا اربعة مائة تعطوه تحسين مسكن
+    - ena clien biat metrasem dinars enajem dar b milion ou ans
+    - تعطو قرض سكني علي  سنة والا لا
+    - kifesh 9ardh sakani
+    - نحب نبني داري نجم ناخذ قرض
+    - نعيش في تونس عندي الحق في دار من غير ربا يا زيتونة 
+    - وبربي الي يحب يشري دار علي البانكة وهو موظف اشنوة المطلوب
+    - kol cher lazem win tkon dar win mowjouda dar
+    - brabi ana chahra w   dar chnoi chorout
+    - انانخدم في معمل الخياطة و نحب نخو قرض للبناء كيفاش
+    - نحب نا خو دار كيفاش
+    - eni nheb nkamel bih dari
+    - الي وياخو في  ينجم ياخو قرض صغير
+    - nheb 9ardh
+    - الشهرية  و العمر  نجم نشري apartement  مليون
+    - بربي بخصوص قرض المسكن الاول انا عندي ارض صالحة للبناء نجم ناخذ قرض للبناء بشروط المسكن الاول
+    - انا نخلص مليون  نجم ناخو دار
+    - عمري  سنة نجم ناخو دار علما واني موظف
+    - انا نحب ناخو دار علما ان المبلغ الصافي  د وعمري  سنة قداه تعطوني وقداه الرجع
+    - ana inheb  dar kifache
+    - madame hala conte  twa  ans tnajem takho kridi  dar
+    - نحب نكمل داري 
+    - نحب نشري دار وعندي باتيندا تنجمو تعاونوني
+    - نحب نشري دار كيفاش
+    - انا شهريتي  ونحب نشري منزل قداش ندخر وكيفاش شروط شريان المنزل يعني قداش تكملولي بعد الادخار بسنتين
+    - نجم تعطيني قرض نشري دار
+    - ممكن ناخذ قرض مقابل ضمان رهن دار
+    - كيفاش نجم ناخذ قرض سكن
+    - brabi ena nkhdem w f secteur privé w nokhls  w makhdhitch hata  tawa nhb nekhou dar 
+    - nheb nechri dar b facilite kifeh  brabi
+    - انا حب نشري الدار قديما كيفاش نعمل مع شكر
+    - ماهي شروط الحصول علي قرض سكني
+    - انا موظف شهريتي مليون و عمري  نجم ناخو قرض سكن
+    - متقاعد العمر  عام الجراية  قداش تعطوني قرض بناء مسكن
+    - انا حريف في bna فرع المتلوي نحب ناخذ قرض سكني لكن في الفرع هذا قالوا مانعطوش قروض سكنية
+    - نعيش في ايطاليا و نريد بناء مسكن الارض موجودة بمن يمكنني الاتصالهل لكم اعوان في اروبا
+    - انا نحب ناخذ قرض باش نشري دار كفاش نعمل انا و زوجي
+    - انا عندي باتيندة وشهرية باسم زوجتي وانا شهريتي فبنك الاسكان ماخذ قرض مزال فيه  ونصف حوالي  نحب ناخذ تمويل مسكن من بنك الزيتونة كيفاش نعمل
+    - ebrabi  mouchkla fi banque zitouna fi mestir  matlib fi bina dar  koulha emrghla dosier sabetou    echehouer moudir banque koul mara  haja manche fahem lahkeya menou wala min tuins wala  ani elmouchkla fin enhbe  menkouem wala   had efhamni win elmouchkla ou merci
+    - انا عندي كريدي في بنك الامان تنجمو تشروه ونعمل معاكم قرض سكني
+    - انا نحب نشري دار كيفش نعمل
+    - انا عندي شهادة ملكية اتنجموا ترهنولي العقار وتعتوني قرض
+    - نا عندي دار فاه ءشتيراك في لمالكي نجم ناخو
+    - نحب نشري دار
+    - بالتقسيط ارجوكم كيفاش تعمل قديمة وتصلح
+    - نا عندي معاكم  سنة في بنك تيجاري نحب نخو دار كيفاش نعمل نخدم في معمل مترسم
+    - ولي حب يشري دار بالتقسيط كفاش
+    - انا نحب نشري دار كيفاش اتنجموا تعاونوني
+    - بالله انا نحب قرض نكمل الدار وين المكان متاع البنك
+    - انا نحب علي مسكن
+    - تنجم تشري دار بنك الامان وشني الطلبات
+    - بربي سوال الي عندو قرض شخصي و يحب يشرب دار  تنجم تشريهالك
+    - انا مترسمه اما شهريتي ضعيفه ونحب نعمل تحسين مسكن كيفاش نعمل
+    - انا عندي ارض تنجموا تعطوني علها قرض نحب نشري دار
+    - ان نحب نشري دار
+    - عندي دار نجم تعطوا عليها قرض
+    - nichri dar chno il matloub merci
+    - nechri dar ena  fi banque  kifech 
+    - نحب نشري دار وانا موظفة وعندي تمويل ذاتي
+    - عندي  مليون نحب نشري دار باش تنصحوني
+    - نحب ناخذ دار فيها شهادة جوز مع العلم انا مترسم ونخلص علي البانك
+    - كان الي يظهر ياخو دار والي مايدخرش ماعندوش الحق ياخو دار
+    - نحب ناخو دار وانا حريف عندكم
+    - شوف دار دلولة للبيع
+    - ثم امكانية حصول علي قروض لشراء عقار
+    - نحب نشري دار وكل شهر نعطيكم 
+    - صاحبة مشروع خاص نحب نشري دار مع العلم اني حرفية عندكم كيفاش نعمل
+    - تحسين منزل
+    - نحب تمويل بناء منزل الارض موجودة ،شهادة ملكية موجودة،رخصة بناء قريبا جدا تكون حاضرة
+    - نحب نشري منزل
+    - نحب نبني دار و المشكلة اني نعمل في القطاع الخاص
+    - نحب نشري دار قيمتها  الف دينار
+    - نحب نشري دار اما معنديش التسبقة
+    - حاجتي تمويل تحسين مسكن انا متقاعد وحريف عندكم
+    - بناء منزل
+    - نحب نشري منزل apartment
+    - نحب نبني الدار
+    - نحب نشري دار ان شاء الله
+    - نحب نبني دار انحب انكملها
+    - انا عندي دار فيها حجة عادية و نحب نرهنها للبانكه ، ثماش امكانيه مع بنك الزيتونه و شكرا
+    -  انسان في الخارج يحب يشرب دار علي الطريقة البنك اشنوا يعمل بالله اشنوا الاجراءات 
+    - nhib nichri dar ama kifech  yarham waldikom
+    - ene mtrasma ama chahriti akal mn mlyoun najem  bchhriiraa mn
+    - نحب علي دار شنو مطلوب
+    - كفاش نحب نشري دار ام شهرية رجلي ضعيفة و مترسم
+    - انا حريف بالمصرف ومترسم وانحب نعمل تحسين مسكن شنو نعمل
+    - نحب نشري دار كم المبلغ الذي يمكن ادخاره شهريا وكم سنة
+    - نحب نشري الدار كيفاش تعاونونينخدم في معمل مترسم
+    - انا متعاقد عندي ستة سنين ونا انحب البنك  انو من اعز البنوك ونا انحب نبني كداش تعطوني قرض
+
+
+
+
+
+
+- intent: loan_land
+  examples: |
+    - cالمشكneو تبدي عندك قطعة ارض تحب تعمل قرض سكن يقولولك كاما تبدي نظيف يعني يلزمك تخلص القرض العادي الي عندك وبعد تعمل الي هي في بنوك اخري يعطوك قرض سكن حتي كتبدا عندك قرض عادي
+    - نحب ناخو قرض مقابل رهان ارض  نجم مع بنك الزيتونة
+    - شنوة لازم لقرض فلاحي لو سمحتم
+    - بربي بخصوص قرض المسكن الاول انا عندي ارض صالحة للبناء نجم ناخذ قرض للبناء بشروط المسكن الاول
+    - انا حرفية وصاحبة مجع فلاحي نحب علي قرض
+    - انا عندي بتيندا وفلاح شنوة الحلول الي موجودة باش ناخو قرض
+    - nhb  mlioun nchri ardh ans
+    - انا عندي ارض ذات سبغة فلاحية نحب قرض بناء
+    - عندي قرض مزال موش خالص نجم ناخو ارض و كيفاش نجم نعمل
+    - انحب ناخو ارض شنوا الشروط
+    - انا نحب نشري ارض كفاش نعمل
+    - نخدم مع الخاص مترسم شنوا الشروط نجم ناخذ
+    - nheb nechri arth kifeh 
+    - arth titre ou oumourha mrigla kifah enajm bach nbni
+    - نحب ناخذ قرض ناخذ بيه ارض
+    - عندي ارض نحب نرهنها وناخو قرض نبني بيه دبو نكريه والا نعمل فيه مشروع 
+    - عندي قطعة ارض اشتراكية في الملكية انا واخوتي منابي  هل ممكن رهنها مع العلم متر يساوي  ارجوا من سيادتكم مدني بالمعلومات ودمتم في رعاية الله
+    - ثم ارض نحب نخوها انا مطرسم في شريكة خاصة  كفاش نعمل وشكر
+    - انا نحب نشري ارض كفاش نعمل
+    - انا نحب ناخذ قطعه ارض عن طريق بنك الزيتونه ممكن
+    - عندي قرض بقيمة اربعين مليون من بنك تونس وامارات مازال فيه اربعة سنين باش يخلص ونحب نشري دار والا ارض كيفاش تنجمو تعاونوني انتم
+    - ared nkamel
+    - کیفاه انجم نعمل قرض للبنا وقداش یعطونی شهریه 
+    - بالله نحب نشري قطعة ارض فلاحية الثمن  الف دينار قداش التمويل وقداش نرجع فلوس و المدة قداش
+    - انا عندي ارض ونحب نبني وناخذ في الجراية  كيفاش نعمل
+    - بربي انا راجلي ماخو قرض صغير من بنك اخري ويحب يبدل عندكم وياخو قرض يشري ارض صالحة للبناء تنجمو تشرولو القرض متعو الرجاء الرد وشكرا
+    - سانية  هك لوز سقوي مسيجة عمرها عام و فاها شهادة ملكية كفاش ناخو علاها قرض 
+    - ana najem nichri ardh
+    - هل يمكن تمويل شراء ارض فلاحية
+    - تعطيو قروض علي ارض فلاحية 
+    - عندي ارض مغروسة زيتون انجمشي نرهنها و ناخذ عليها قرض مع العلم اني حريفة من  سنوات
+    - احب ان اعمل مشروع فلاحي صغير
+    - نحب نعمل مشروع تربية الماشيه
+    - عندي ارض فيها فزدق لوز زيتون نحب نحفر فيها سنطاج
+    - نحب ارض قريب من بلاد
+    - ان من توزر نحب نشري قطعة نخل
+    - انا مهندس فلاحي عندي  عود زيتون عمرو  سنهفي توجد الامواج نحب ناخو جرار مستعمل ومعاه شويه معدات لان الزيتون قادر يجيب  زيتون ممكن تمويل
+    - قطعة ارض
+    - nheb nechri ardh
+    - نحب نشري قطعة ارض
+    - نحب نشري قطعة ارض كيفاش التمويل وشروطه
+    - ارض في جاب الله طبرقة علي الشياع نجم نخذ عليها قرض سكني
+    - نحب نشري قطعة ارض و ثمة مصرف زيتونة في 
+    
+
+- intent: transfer_loan
+  examples: |
+    - تشرو قروضات من بنك اخر والا لا
+    - تشريو قروض
+    - هل يمكن شراء قروض
+    - علاش ما تشروش قروض 
+    - svp tamlou rachat de credit b retraite
+    - عندي كريدي في بانكة فما امكانية نحول معاكم وتشرولي القرض
+    - قرضي مزال  من بانكة اخرة تنجمو تشروه تعطوني قرض
+    - انا حال في بانك اخر وماخو قرض وقريب يخلص حبيت تشرولي القرض ونخو قرض منعدكم قلولي يازم شهرية 
+    - بربي انا عندي قرض من بنك نجمة تشروهلي
+    - تعملو rachat credit
+    - انا في بانك اخر تشرولي الكردي وتعطوني قرظ
+    - تخلصو قرض
+    - بربي نحب نعرف تشرو القروض
+    - انا عندي قرض من بانك اخرتنجمو تشروه
+    - انا حريف عندكم تنجموا تخلصولي باقي الكريديات وانعاود ولا لا
+    - ena harif 3andkom tnajmou tkhalsouli beki el crediyet w n3awed walla lee
+    - تنجمو تشرولي الكريدي متاعي
+    - نحب نعرف تشرو قرض
+    - عندي قرض فل بياط تنجمو تخلصوه
+    - tnajmou techrouli el credit  w nwali client
+    - كيفية شراء قرض من بنك اخر
+    - ممكن تشري قرض من بنك اخر
+    - انجم نكون حريف عندكم وتشرولي قرضي من بانكه اخري
+    - kifech nechri kardh min banke okhra
+    - momken techri 9arth min bank 2kher
+    - ennajjem nkoun harif 3andkom w techrouli karthii min banka okhra
+    - brabbi nheb na3ref techrou 9roudh
+    - 3andi karth tnajmou tkhalsouh
+    - 3andi karth fi banka okhra tnajmou techriweh
+    - ena fi banka okhra techriwli el credit w ta3touni 9arth
+
+
+
+- intent: 9assan_9ardh
+  examples: |
+    - قرض متابع  قداه اتقصوا من الشهرية اذا كان لشهرية
+    - بعثتولي مساج علي اساس باش ترجعولي قرض مارس نحب نعرف وقتاش ترجعولي الي قصيتوه
+    - راكم قصيتولي برشا فلوس الشهر اللي فات شبيكم كي المنشار طالعين هابطين تقصو
+    - 9assitouli 9arthi
+    - 9assan karth
+    - karth mta3 kaddeh itkossou mil chahria itha ken lchahrya
+    - ba3thouli message 3ala 2eses bech traj3ouli karth mars theb na3ref waktech tarj3ouli elli kassitouh
+    - rakom kassitouli barcha flous echhar elli feet chbikom kilmenchar tal3in habtin tkossou
+
+
+
+- intent: loan_education
+  examples: |
+    - هل يوجد تمويل لاكمال الدراسة بالخارح بعد الحصول علي موافقة احدي الجامعاتو تحديدا في فرنسا
+    - انا نحب نكمل ماجستير في جامعة باروبا هل يمكن تمويلي وماهي شروط التمويل وطريقة تسديد الدين
+    - الي مسجل  جامعة خاصة يمكن تمويله
+    - الاب يتكفل بالقرض او الطالب وقداش ينجم يخلص كل شهر  موش شويا
+    - بالله بالنسبة للطالب الخلاص متاع القرض قداش يدفع كل شهر و علي قداه من عام يخلصو و لازم الضامن
+    - نحب قرض متاع الدراسة
+    - نحب قرض متاع دراسة
+    - نجم ناخذ قرض انا نقرى في جامعة خاصة
+    - ennajjem nakhedh 9arth ena nakra fi jem3a khassa
+    - najjem nakhed kardh na9ra fi jemiaa 5assa
+    - nheb 9arth mta3 dirassa
+    - nheb kardh emta3 eddirassa
+    - nheb credit mtaa dirasa
+    - kridi ta3lim
+    - taatiw krouthat mtaa kraya
+    - el abb yetkaffel bil karth aw ettaleb w kaddech ynajjem yokhlos kol chhar mouch chwaya
+    - elli msajel jem3a khassa yomken tamwilou
+    - ana nheb nkammel majistere fi jem3a bi europe hal yomken tamwilii w mahia chourout etteamwil w tariket tasdid eddayn
+    - hal youjad tamwil l2ekmel eddirasa bil kharej ba3d el housoul 3ala mouwefket jem3a mte3ou fi france
+    - billehi bennesba littaleb el khlas mta3 el9arth 9addech yadfa3 kol chhar w 3ala kaddeh min 3am ykhalsou w lezem ethamen 
+
+
+- intent: hajj
+  examples: |
+    - نحب نمشي نحج
+    - nheb nemchi nhejj
+
+
+- intent: documents_loan
+  examples: |
+    - بربي اشنوه الاوراق الازمة لطلب قرض مع العلم انني حريف من زمان
+    - بربي مقدم وراقي علي قرض عندو اكثر من شهرين فماش جديد في ما يخص القروض
+    - بربي نحب نعمل قرض سكني شنية الاوراق الي لازم متوفرة
+    - شنية الاوراق المطلوبة
+    - انا انحب ناخذ قرض اش نيا الشروط الي لازم نعملها
+    - الوثائق المطلوبة
+    - chnya el wethei9 ell lezma lil 9arth
+    - nheb na3ref chnouma el awrak ta3 el credit
+    - brabi chnowa lawra9 lezma bch ne5ou kardh m3a l3elm ena client 3andkom
+    - brabi m9adem awra9i 3la kardh 3andou akther men chahrin famech jdid fi ma y5os les credits
+    - brabi nheb na3mel kardh sakani chnowa les documents lezmin
+    - chnowa lawra9 lmatloubin
+    - ena nheb ne5ou 9ardh chnowa chourout li lezem na3melha 
+    - les documents lmatloubin 
+
+
+  
+
+- intent: projet_loan
+  examples: |
+    - chnia lezma
+    - انا حريف نحب نشري معدات اي الات نجارة ب قيمة  يكون مبلغ التمويل وشكرا
+    - نحب نعمل تربية اغنام كيفاش نعمل قرض ومدة الامهال
+    - انا نحب تاخذ قرض باش نحل مشروع كيفاش تساعدوني وقداش يبقي
+    - انا حريف في تيجاري نجم ناخوا قرض شخصي 
+    - نحب قرض لتحسين مشروع
+    - انا تاجر ونحب نخو قرض
+    - نعمل مشروع
+    - مشروع صغير نسترزق منو
+    - انا دهان مقاول صغير عندي شهايد من وزارة التكوين المهني نحب ماتريال تنجمو تعاونوني
+    - patiserie قداش انجم ناخو 
+    - عندي مشروع ونحب نطور
+    - انا عندي مشروع صغير يتمثل في اكلة خفيفة نحب نكبر فيه شوي كيفاش نعمل ولتزم يكون عندي compte عندكم
+    - عملت مطلب لاستخلاص قرضي و استرجاع مبلغ projet avenir ثمة الامكانية انو يتفض الموضوع كي نطلع لل siege لانو في فرع ولايتي الظاهر مستحيل تم استخلاص باقي مبلغ القرض رجعت  les cartes visas كتبت خمسة مطالب متاعي فهموني لاش مجبور نبقا نستني شهر كامل عندكماذا الموضوع يتحل بسرعة في siege عندكم قولولي نطبع نهز مطلبي
+    - نحب علي قرض  الف دينارا  لغرض تجارة برهنية دار ملكي
+    - انا نحب نعمل مشروع منبت الشجيرات الزينه والازهار والاعشاب الطبيه
+    - انا حجام رجال نحب ناخو قرض شنعمل حاشتي ب  الاف دينار 
+    - تاجر قداش ندفع كيفاش اشنوي المطلوب
+    - تعطو قروض حتي اللي مازال يحب يعمل مشروع جديد
+    - انحب نعمل مشروع كيف نعمل
+    - nheb 3ala credit bech na3mel machrou3
+    - ta3tou krouth ta3 macheri3
+    - ena client nheb nechri mou3edet njara b 9imet ykoun mabla8 tamwil w merci
+    - nheb na3mel tarbiet a8nem kifech ne5ou kardh w chnowa l modda 
+    - ena nheb ne5eth 9ardh bech nhel projet kifech t3awnouni w 9adech yab9a
+    - ena client f tijari najem ne5ou 9ardh cha5si
+    - nheb ne5ou kardh bech nhassen machrou3
+    - ena tejer w nheb ne5ou 9ardh 
+    - na3mel machrou3
+    - machrou3 s8ir nestarza9 menou
+    - ena dahen mou9awel s8ir 3andi chheied men wzaret takwin mehni nheb materiels tnajmou t3awnouni
+    - 9adech najem ne5ou patisserie 
+    - 3andi machrou3 w nheb ntawer 
+    - ena 3andi machrou3 s8ir yetmathel fi okla 5fifa nheb nkaber fih chwaya kifech na3mel w chnowa lezem ykoun 3andi
+    - nheb 3la 9ardh 1000 dinars li 8arth tijara borhania dar melki
+    - ena nheb na3mel machrou3 manbet
+    - ena hajjem rjel nheb ne5ou 9ardh chna3mel hachti b 1000 dinars 
+    - tejer 9adech nadfa3 chnowa lmatlouba 
+    - ta3tou 9ouroudh 7ata leli mazel yheb ya3mel machrou3 jdid 
+    - nheb na3mel machrou3 kifeh na3mel
+
+
+
+
+
+
+
+- intent: loan    
+  examples: |
+  
+    - شفولنا حكاية القروض لمدة  سنوات
+    - choufoulna hkeyet l 9ouroudh l modet 10 sanawet 
+    - انحب ناخذ قرض
+    - nheb ne5eth 9ardh
+    - انا حريف نحب نشري معدات اي الات نجارة ب قيمة  يكون مبلغ التمويل وشكرا
+    - ena client nheb nechri materiels njara b 9imet mabla8 tamwil w chokran
+    - عليكم ورحمة الله وبركاته انا مواطن زوالي بلوغة اخرة عامل نجم ناخو  ولا ميحقليش
+    - salamou 3alaykom ena mouwaten zaweli nheb ne5ou credit
+    - هل يمكن لمن راتبه اكثر من  تقديم مطلب للتمتع بتاجيل اقتطاع القرض للثلاثة اشهر القادمة
+    - كيفاش نعمل قرض
+    - kifech na3mel kardh
+    -  habit  yabda yekhales men awel ma yakhou l tamouil wala  maykamel  l wahed
+    - nheb 3ala cridit
+    - mathabya 3ala credit
+    - بربي نحب ناخوا قرض كيفاه 
+    - brabi nheb ne5eth kardh kifeh
+    - ثماء قروضة ولا
+    - fama cridiet wale
+    - انتم طعتو القروضة
+    - entouma ta3tou cridiet
+    - نحب نخو قرض رني بطل يرحم ولديكم عونوني
+    - nheb 9arth yarhem weldikom 3awnouni
+    - ena mouwadhef wandi credit fi banque okhra kifech enajem namel
+    - هل يمكن اخذ قرض تكميلي او فسخ الالتزام مع بنك اخر واخذه من بنككم مع خلاص ما يريده البنك مع العلم انه تقريبا في حدود ال  مليون واخذ خمسة اخارين مع مدة مطولة اي من خمسة الي عشرة
+    - بربي نحب عالكريدي ماوافقتونيش رغم دخلي متوسط
+    - brabi nheb 3la cridi w mawefe9toulich ra8meli da5li metwaset
+    - هل بامكان المتقاعد الحصول علي قرض بضمان الدخل متاعو فقط  واذا ممكن في حدود كم
+    - ynajem met9a3ed ye5ou 9ardh bethmen da5l mte3ou kahaw 
+    - سؤال هل تم الموافقة علي قرض   مليون علي  سنوات
+    - souel ye5i wefe9tou 3la 9ardh 50 malyoun 3la 10 sanawet
+    - atina kardh
+    - انا موظف وشهريتي تتصب في بانكه اخرى وعندي مكتب خدمات تعرضت لصعوبات مالية نحب على تمويل
+    - ena mouadhef w chahriti tetsab fi banka o5ra w 3andi makteb 5adamet nheb 3la tamwil
+    - ema  tamwil dheti kifech 
+    - brabi ena  nheb  credit kifh 
+    -نحب ناخو قرض وانا عندي زوز قروضات  كيفاش الخدمة الي تقدمو فيها مع الشكر سلفا
+    - nheb ne5ou 9ardh w ena 3andi zouz 9roudha kifech l5adamet li t9admou feha ma3a chokr 
+    - ana lani metrasma wl chhada melkya rajli fi libya chahrito  najem 
+    - chahriti   tnajmou  
+    - نحب ناخو قرض شخصي  علي
+    - nheb ne5ou 9arth cha5si
+    - انا نحب سلفة فلوس مش اثاث ونرجع علي سنتين
+    - ena n7eb solfa flous w nraja3 3la 2 ans
+    - نحب نكبر مشروعي باش ناخذ قرظ شنوا الظمان وكيفاش نعمل المبلغ من الي فهموني ولكم الشكر والتقدير
+    - n7eb nkaber machrou3i bech ne5ou 9ardh kifeh na3mel fahmouni w chokran
+    - انا حالة compte عندكم ماخذة قرض يوفي بعد عامين نحب قرض  هل يمكن ذلك
+    - عندي هبة عملتهالي امي انحب ناخو قرض واني عمل بوزارة الصحة كيفاش نعمل
+    - فما قروض
+    - fama cridiet
+    - لازم ضامن ولا لا  و قداش الانتريس في العام 
+    - fama thamen wale
+    - نحب  ملاين في اقرب فرصة نجم نكلمكم
+    - nheb mleyen fi a9reb forsa najem nkalamkom
+    - انا  ومترسم في شركة هل يمكن الانتفاع بقرض طويل المدي
+    - ena metrasem fi charika najem ne5ou 9ardh à longue durée
+    - انجم ناخذ من عندكم قرض صغير  دينار
+    - najem ne5ou 9ardh men 3andkom 9ardh s8ir 
+    - انا عندي قرص شخصي مع ال انجم معمل rachat de credit معاكم وناخذ دار
+    - ena 3andi 9ardh cha5si najem na3mel rachat de credit m3akom w ne5ou dar
+    - بربي انجم نتحصل من عندكم علي قرض وشنو الازم اذا ممكن
+    - brabi najem net7asel men 3andkom 3la 9ardh w chnowa lezem
+    - كيفاش انجم خذ قرض
+    - kifeh najem ne5eth kardh
+    - مازلت نخلص في قرض من بنك اخر هل من الممكن اني نبيع كرهبتي ونتمتع بالعرض مع العلم القرض يخلص مارس 
+    - mezelt n5ales fi kardh men bank e5er hal momken nbi3 karhabti w netmata3 bel 3arth 
+    - نا ناخذ قرض من بنك اخر تنجموا تعملوا شرا
+    - انا انحب ناخذ قرض قداش تعطوني
+    - ena nheb kardh kadech ta3touni
+    - بربي شنوة المتطلبات للقرض
+    - brabi chnowa lmotatalibet lel 9arth
+    - سلام عندي قرض شخصي قرب عشرة مليون في بنك اخر ونحب نقدم في قرض مسكن اول نجم ولا
+    - salem 3andi kardh cha5si 9rib 10 mleyen fi banka o5ra w nheb n9adem fi kardh masken najem wale
+    - كم تدوم مدة دراسة الملف من قبل الخبير العقاري مع العلم ان مطلب القرض مقدم الي البنك منrouli dar win  ana
+    - قيمة القرض قداش
+    - 9imet l9arth 9adeh 
+    - كيفاش انجم نخذ قرض
+    - kifeh najem ne5ou 9ardh
+    - نحب بسالكم عندي شهادت ملكيا باسمي نجم ناخذ عليها قرض في شكل رهنيا من عندك
+    - brabi andi karid min  nhib kard takmili kifech namil
+    - انا نحب نسال نحب ناخوا قرض شخصي بضمان من عرفي فالعمل انجم ولا
+    - ena n7eb nesel najem ne5ou 9ardh cha5si b thmen men 3arfi fel 5edma najem wale
+    - قصان مايفوتش  دينار في الشهر في  سنين، علي شهرية  قداش نجم ناخذ بالظبط
+    - مازالي عامين  باش يخلص القرض نجم نخلصهم  مرة واحدة  والا لا
+    - mazeli 3amin bech yo5les 9ardh najem n5aleshom mara wa7da wale
+    - brabi ena malyoun mois nzid tnajem banka tzid
+    - نحب علي قرض بcision ممكن
+    - نحب ناخذ قرض نجم نجيكم
+    - nheb ne5eth 9ardh najem njikom
+    - بربي نحب ناخو قرض قيمتو  دينار موظف عمومي مترسم شمي امكانية، جاوبوني
+    - brabi nheb ne5eth kardh 9imtou dinars mouadhef metrassem fama emkania jewbouni
+    - تعطو قروض للعمال السياحه
+    - ta3tou 9ourouth lel 3omel sie7a
+    - عندي بطاقة اعاقة وانحب نعرف نجمش ناخو قرض
+    - 3andi bita9et i3a9a w n7eb na3ref najamch ne5ou kardh
+    - رجعولي القرض مارس
+    - interets طلب توضيح علاش تم الترفيع في مبلغ الفاءدة 
+    - 3leh zedtou fel les interets
+    - بربي انا عامله مطلب كريدي من  لتوا مجاوبوني مفهمت شيء
+    - brabi ena 3amla matleb cridi w majewebtounich
+    - نحب ناخو قرض نشري بيه دار في حدود  مليون كيفاش نجم نعمل في حدود قداه لازم تكون شهريتي باش نجم نتحصل علي  مليون
+    - nhab  lkareth w ana chahriti  njm wala la
+    - هل تعطو قروض صغيرة وما هي الشروط
+    - انحب نسال كفاش تعطو قروض انا عامل يومي وانحب ناخذ قرض قداش تعطو وكفاش انرجع
+    - nheb nesel kifeh ta3tou cridiet
+    - ماخذ قرض مزال فيه عام ونصف ويخلص نحب نبدل عندكم توا وناخو قرضة وعندي تمويل ذاتي
+    - سلام انا مترسم في شركة خاصة شهرية  قداش نجم نخو قرض
+    - هل يمكن اخذ قرض تكميلي او فسخ الالتزام مع بنك اخر واخذه من بنككم مع خلاص ما يريده البنك مع العلم انه تقريبا في حدود ال  مليون واخذ خمسة اخارين مع مدة مطولة اي من خمسة الي عشرة
+    - كي يبدي الواحد حال حساب عندكم وهو موظف انجم ناخو قرض من عندكم
+    - كيفاش نخذا قرض وقداش فاءض
+    - انا نخدم في البلدية نحب علي قرض صغير 
+    - ena ne5dem fel baladia n7eb 3la kardh s8ir 
+    - لدي قرض باحد البنوك هل بامكان مصرف الزيتونة سداده بعد تحويل حسابي البنكي واخذ قرض من احد فروعكم القريبة من سكني
+    - نحب نتزوج و نعف روحي عن الحرام اهل الخير ثماش امكانية و تكون سلفة من غير فاءض
+    - nheb n3ares famech imkaneya ne5eth 9arth
+    - نسبة الفاءض قداش بالله
+    - انا مترسم وحريف بالمصرف هل من الممكن تقديم مطلب قرض
+    - ena metrassem w client 3andkom hal momken n9adem matleb kardh
+
+
+- intent: account
+  examples: |
+   - انا حال حساب في uib نجم ناخو تليفون
+   - شنوة الاوراق اللازمين باش نحب كونت
+   - قداش نخلصو عليها الكارطة
+   - كيفاش يلزم يكون عندي كونت في البنك
+   - حساب الادخار في الاسهم هو حساب يسمح بطرح مبلغ من الضراءب علي الدخل  و كيف ذلك و شكرا
+   - كيفاش نقدر نسكر حساب في فرع وفتح حساب جديد في فرع اخر في اسرع وقت والحصول علي شهادة رفع اليد بدون الحاجة للتنقل الي مكان الفرع القديم
+   - ممكن نعرفوا شنوة شروط فتح حساب بنكي عندكم و هل ثمة وثاءق اخري بخلاف نسخة من ب ت و 
+   - حبيت علي كونت بالعملة الاجنبية كاني طلبت المستحيل بالرغم اني حريف وعندي حساب جاري لشركتي والحساب اجباري لموقع علي النات
+   - brabi nhib nhil carnet idikar kifech wichrout afidouni 
+   - انا عندي كونت حليتو عندي عامين وما صبيتش فيه وانحب انسكرو شنيا نعمل
+   - kifech nhel compte 
+   - نحب نعرف كيف نحل كونت ونعود نصب فيه ميضالش عندي فايض لخاطر منحبش لنتريس
+   - السلام انا بلال مقيم في الخارج نحب نحل compte عندكم شكرا
+   - شوية ادخار الواحد علي الاقل يدخر كل شهر  د او اكثر باش نجم يعمل حساب مقبول
+   - و ماعندوش شهرية كيفاش يعمل ما يخدمش نجم صب في الكونط
+   - epargne toumouhi f atijeri min ans kol chaher dinars jibet minhom fois w mazel menhom est ce que yetsabou automatique k yekmel el contrat wela yilzem ena notlibehom w ans much a vie le prelevement  merci beaucoup
+   - nheb namel epargne f amen bank china el awrak 
+   - nheb nhel compte epargne
+   - اهل نحب نعرف اوراق لازم باش نعمل كونت
+   - بربي نحب نحل كونت عندكم مع العلم منتدب في سلك الجيش
+   - brabi compte awel mara
+   - نحب نعرف كيف نحل كونت ونعود نصب فيه  ميضالش عندي فايض لخاطر  منحبش لنتريس
+   - compte courent kifeh w chourout
+   - كيفاش نجم نحل كونت عندكم
+   - najem ne5ou telifoun ena 7al compte fl uib
+   - chnowa les documents lezmin bch n7el compte 
+   - 9adech n5alsou 3leha l carte
+   - kifech yelzem ykoun 3andi compte fl banque 
+   - kifech najem nsaker compte fi far3 w n7al compte jdid fi far3 e5er fi asra3 wa9t 
+   - momken na3rfou chnowa chourout bech n7ell compte bancaire 3andkom w est ce que fama des documents 5rin be5lef CIN
+   - nheb 3la compte bl 3omla l ajnabia 
+   - ena 3andi compte 7alitou 3andi 3amin w ma sabitech fih w nheb nsakrou chnowa na3mel
+   - nheb na3ref kif n7el compte w nwali nsob fih 
+   - salem ena mou9im fel 5arej nheb n7el compte 3andkom merci
+   - nheb nsob fil compte w ma 3andich chahria kifech na3mel 
+   - ahlan n7eb na3ref les documents lezmin bech n7ell compte 
+   - brabi nheb n7el compte 3andkom m3a l3elm ena montadab fi selk l jaych 
+   - kifech najem n7el compte 3andkom
+
+
+- intent: payment
+  examples: |
+    - قداش يقعد باش يصبو الفلوس
+    - قداش نخلص كل شهر
+    - كيفاش نجم نعرف صبولي و لا
+    - كيف تخرج فلوس من فرع اخر غير فرعك مع ان العلم ان الفرع بنفس المدينه هل ياخذو منك فلوس
+    - المبلغ لفيه نجم نجبدهم و كيغاش نعمل
+    - و قتلي تتصب شهريتي شنوا نعمل
+    - 9adesh yok3od besh ysobou l flous
+    - 9adesh nkhales kol chhar
+    - ken tkharej flous men far3 ekher y9osoulek flous
+    - kifej najem nejbed l flosu li andi
+    - wa9t elli tetsab chahriti shnowa namel
+    
+
+- intent: card
+  examples: |
+    - انجم انقص ابونمون متاع بيين سبورت بالدولار من خلال الكارت تكنولوجية و كيفاش نتحصل علاها
+    - فما كارطة تجمع الخدمات متع الكوارط الكل
+    - بالله كارت تكنولوجية تشري من اي موقع في العالم ولا
+    - بلاهي نحب نعمل حساب توفير بالكارت نحب نعرف قداش مصاريف الكارت في العام 
+    - سلام بالله تسرقت كارت امي و معاها ورقة كود و اليوم احد خايفين يجبدو الفلوس مشينا لمركز قالو مانجمو نعملو شي كيفاه نتصرف
+    - carte sesame toufa fi octobre
+    - nestana fi renouvelement de carte
+    - carte travel fi bh souse w sabit fiha flous w declarit  w kif safert  tejbed chniya 
+    - najem biha par internet yani kima master card	
+    
+
+- intent: demande_info_time
+  examples: |
+    - تخدمو غدوة
+    - svp waktech tsakrou
+    - بربي تخدمو غدوة فرع المروج
+    - نحب ناخذ كيفاش
+    - تخدمو غدوة رجعتو 
+    - بربي تخدمو غدوة ولا 
+    - tekhdmou demain
+    - brabbi tekhdmou demain far3 el mourouj
+    - nheb nekheth kifech
+    - tekhdmou demian rja3tou
+    - brabbi tekhdmou ghodwa walla lee
+
+
+
+- intent: demande_info_card
+  examples: |
+    - والي ماعندوش carte bancaire
+    - سعر كل بطاقة و امتيازاتها
+    - comment obtenir cette carte
+    - welli ma 3andouch carte bancaire
+    - se3r kol bitaka w imtiyezatha
+    - kifeh namel carta
+    - carte bancaire
+    - nheb namel matleb besh nekhou carta
+
+
+  
+
+
+- intent: demande_info
+  examples: |
+    - 
+    - سلام تنجم نعرف وين موجودين
+    - najem na3ref win mawjoudin
+    - jewibt shih chkoun rbah
+    - chouma  lokhra litajmou tmawlouhem svp
+    - والي يحب ياجل ستة شهور كيفاش
+    - welli iheb i2ajel 6 chhour kifesh ya3mel
+    - عندكم فروع في كل معتمدية ولا في مقر الولاية فقط
+    - andkom fourou3 fi kol mo3tamdeya walla fi ma9ar wileya akahw
+    - انا عندي كرني اصفر وسجلت علي المنصة ويقولولي ليس لديك حساب افتراضي زعم تتنحي كلمة ليس
+    - ena andi karni asfer w sajelt w i9oulouli ma andeksh compte kifesh namel
+    - هل ممكن فتح فرع البركة في ولاية قفصة
+    - tnajemou theloulna far3 fi gafsa
+    - ماهي الاجراءات و التسهيلات
+    - shnowa el ijra2et ellezma
+    - كيفاش نحب نعرف
+    - kifesh nheb na3ref
+    - نحب نحل مشروع
+    - nheb nhel mashrou3
+    - موجود فرع في جندوبة
+    - famma far3 fi jandouba
+    - كيفاش نشارك
+    - kifesh nsherek
+    - كيفاش بربي
+    - brabi kifesh
+    - brabi jewbou ala el message
+    - علاش  التجااري ينحي التاكس عندما نسحببوو من القاب
+    - a3lesh tnahiw tax kif nejbdou mel distributeur
+    - chkoun mcha lel banque w flous  kol  ken houma ghalba fehom
+    - اهلا بيكم كيفاش نتحصل علي وحدة
+    - aslema kifeh net7asel alikom
+    - كيف طريقة الاشتراك
+    - kifesh najem nsherek maakom
+    - bonjour kan fama ichkoune mel siege ey jawebni en prive svp
+    - fama autofinancement ou non
+    - علي من تونس يخي عندي المال ولا
+    - كيف طريقة الاشتراك
+    - وين الفرع البنك
+    - win l l far3 mteekom
+    - انا مقيم خارج تونس ونحب نقدم مطلب علي البطاقة هذي كيفاش نجم نعمل وانا خارج تونس 
+    - ena nosken l barra w nheb n9adem matleb besh namel carta kifesh na3mel
+    - ana andi  miles avence enhib nechri kifech
+    - كيفاش اني صاحب مشروع
+    - نحب شكون يعاوني في استفسار يا ناس حلينا كونت زغوان سنة  سكرناه ما خذيناش وثيقة يطالبونا في  بتسديد مبلغ   دينار فلوس ما خذينهاش بربي حلال والا حرام في هالضروف ال
+    - نخدم في القطاع الخاص و عندي باتيندا نجم نتمتع به العرض هذا
+    - الشنو المطلوب
+    - achnwa matlob
+    - shnowa l matloub
+    - كيفاش النجم و الشنوة المطلوب
+    - والي خرج لنتريت ينجم والا لا
+    - ena khdhit lantrid kifesh
+    - kifech brabi
+    - كفاش بربي
+    - فهمونا كيفاش
+    - fahmouna kifesh
+    - كيفاش نعمل مع العلم انا عامل يومي
+    - ولي عندو دفتر ادخار من قبل ، تشملو الاسعار التفاضلية  
+    - ena andi daftar eddikhar kifesh 
+    - كفاش
+    - tjbd biha fi  brabi 
+    - نجم نعرف المزيد من التفاصيل من فظلك
+    - tnajmou tfahmouna akther
+    - تتعاملو بالربا و الا بلاش
+    - بربي حبيت نسال فم برنامج باش تحلوا فرع في عقارب ها الايمات قاعد الخبر يدور
+    - نجم نقل من بانكة لبانكتكم
+    - najem na9el lel banka mteekom
+    - نجمشي نهز مرافق ولدي مثلا
+    - قداش العام
+    - الي يعمل licence prive شنوما الشروط باش تعاونوه
+    - shnowa l shourout
+    - فما انتدابات
+    - fama entidebet
+    - تمويل حلال
+    - identifiant bancaire kifach
+    - عسلامة بربي كي نحب نخو في rouge وانا مترسمة نجيب اوراق لازمة نخو لفلوس بلوقت والا نستني نهارات
+    - nheb naref haja fama chkon  trensfer mn compt  lcompt howa fel kharej  youslo flous belehy
+    - نا فلاح ونحب نعرف شتي الضمانات
+    - كيفاش بربي نجمو نستفيدو من خدماتكم
+    - hachti bel fixe agence bachamba atijari banque et merci
+    - الاوراق المطلوبة
+    - nestafser  
+    - نحب علي قرض ب cesionهل من الممكن تقولولي الفرع الي انجم نتصل بيه علما واني من تونس وموظف
+    - نحب علي سسين شنو الازم
+    - متي يتم فتح فرع بنكي بتالة مع العلم انو يوجد فرع بنكي وحيد احد 
+    - دلوني
+    - بربي فرع في المرناقية
+    - كيفاش فسرولنا
+    - kifesh fasroulna
+    - سبق واشرت ان فروعكم ترفض صرف حوالات ارجوا الافادة
+    - كيفاش
+    - و كيف تبدي مشارك في بانكة اخري اش لازمني نعمل
+    - انا نخدم في القطاع الخاص كيفاش نجم نتمتع بالعرض هذا
+    - هل هي بالطريقة الاسلامية صحيحة 
+    - كيفاش نعمل
+    - كيفاش لنجم و الشنوة المطلوب
+    - فهمونا كيفاش
+    - kifech blehi
+    - وين مصرف هذا
+    - win bedhabt
+    - بربي فمافرع في حفوز معتمدية القيروان
+    - رجاءماهي ارقام هواتف البنك الفرع الرءيسي او فرع خيري الدين باشا القارية الارضية
+    - اخر اجل لسحب منحة الاجتماعية 
+    - wa9tesh deadline
+    - برابي  فماش  كود  نعملو باش  نعرف شهريتي  كيف  تتصبلي
+    - brabi num najem nkalmekom 
+    - بربي الكارطة visa exprese قداش يقصوا عليها في الشهر و العام و قداش المبلغ الاقصي
+    - باش نعمل reclamation لشكون نمشي
+    - kifech  hathi
+    - قداش تقعد تجديد بطاقة بنكية ظاءعة
+    - carta dhay3a kifesh bedhabt
+    - هل بنك  مازلت تعطي سيسيون
+    - kifech ncharek  
+    - brabi shniya la banque en ligne 
+    - ani  nheb nkalemhom b telephone  svp merci
+    - brabi  exemplaire du mainleve du compte bancaire bech nbedel lel biat
+    - brabi c est quoi debit divers men  chnou hadha
+    - بربي عندي مشكل ماذا بيا تعاونوني باش نحلو انا تو منيش في تونس كان فما طريقة باش نتواصل بيها مع فرع الامان بنك بني خيار نابل
+    - بربي اني مواطن تونسي نعيش في الخارج،عندي دفتر ادخار في stb عندي مدة ما روحتش للبلاد و الدفتر ضايع كيفاش نعرف قداش فيه فلوسدفتر ادخار و اني في فرنساو كيفاش نخرج دفتر ادخار اخرو قداش وقت باش نتحصل علي دفتر ادخار جديد و شكرا
+    - كيفاه
+    - kefache
+    - كفاش 
+    - بعثنا وما اتحصلناش علا الجواب كيفاش
+    - baatht w ma jewbounish
+    - كيفاش وشنوي المطلوب
+    - kifacا  fasirli
+    - شني الضمانات
+    - shnowa dhamanet
+    - كيفاش نجم نعمل
+    - brabi chneya  lmatloub
+    - فسرلنا اكثر
+    - شنوة المطلوب علما و اني موظف sncft و عندي كونت في بنك الزيتونة توفير من سنة 
+    - كفاش بالله فسرولنا اكثر
+    - behi ki ensoube el dosier   bache  yabta
+    - فسرلي انحب نفهم
+    - اكثر معلومات بربي فهمونا
+    - زيد فسر لنا اكثر
+    - zed fasrelna kifch carte
+    - kifeh  fi seance unique svp
+    - kifech 
+    - brabi kifeh  code client 
+    - هذا الادخار اجباري ام اختياري
+    - brabi kifh najem nchouf e solde
+    - حال حساب عندكم نحب نسكرو بحكم طلعت نعيش البرا مشا الوالد قالهم قداش يخلص ويسكرو قالولو لزمو يجي هو كيفاش يعني يبقي يمركي عليا في الفارغ وكيفاش نقص ونهبط من كندا ونجي بش نسكر حساب هذا كلام تو 
+    - بربي تعطيني نومرو كم
+
+    
+
+- intent: feedback
+  examples: |
+    - inchalah dima fel 
+    - bravo walah
+    - اكثر من  سنة ربي يعاونكم
+    - yatikom saha rabi iaawenkom
+    - bravo
+    - bravo stb
+    - محبتكم بالدنيا
+    - شكرا stb
+    - ربي يعاونكم و يحميكم
+    - فخامة الاسم تكفي الشركة التونسية للبنك ان شاء الله ديما فرحانين
+    - bravo agence kef
+    - stb المنار مشالله خلق واخلاق خاصه الموظفين الجدد في خدمه الحرفاء قلب وقالب كل الشكر اليهم ومزيد من النجاح
+    - فرع المتلوي داءما متالق
+    - شكرا stb جارة احسن بانكة منذ سنة 
+    - احلي بنك واحلي فرع دار شعبان ماريت منهم كان الخير من اول شهرية سنة  الي يومنا هذا الشهرية في وقتها والي نطلب ناخو شكرا لكم من القلب
+    - شكرا stb فرع مارث
+    - احلي بنك واحلي فرع مولنفيل اريانة صفاقس ماريت منهم كان الخير عندي  نتعامل معهم خاصة رءيسة الفرع
+    - شكرا stbفرع صفاقس
+    - شكرا stb فرع دوزكل الاحترام و الشكر لاطاراته
+    - stb agence fouchana merci beaucoup
+    - كل الشكر والتقدير stb فرع حشاد صفاقس
+    - كل الشكر و التقدير stb بنزرت و اعوانها
+    - stb rades bravo et merci pour votre service
+    - bravo stb et surtout agence charguia
+    - شكرا stb سجنان و للعاملين فيه ايضا
+    - شكرا الشركة التونسية للبنك ،واتوجه خاصة بالشكر لفرع stb بوسالم ،وعلي راسهم السيدة رءيسة الفرع مدام فتحية وكافة الموظفين به ،لما يقدمونه من خدمات وحسن الاستقبال والاخلاق الرفيعة  شكرا
+    - احلي فاروق stb الكاف
+    - stb bank شنني قابس من اعز البنوك الاطار الي عامل فيها الكل دون استثناء
+    - bravo stb quand t es que on va voir une agence a sahloul souse 
+    - احلي بنك stb ربي لا نحيكم علينا
+    - vraiment atijari leader fi tounes
+    - merci
+    - بالتوفيق والنجاح للجميع ان شاءالله
+    - حاجة باهيه
+    - الله يخليك ويفرحك
+    - احلي بنك تيجاري ربي يوفقكم
+    - كنت في بنك تجاري و حولت امان بنك بصراحة بنكا دلولا برشا و عجبتني
+    - يكثر خيركم
+    - ykather khirkom
+    - بالتوفيق انشالله
+    - موفق سي علي
+    - مبروك
+    - احسنتم
+    - yatikom saha
+    - ربي يبارك
+    - شكرا وتقدير
+    - نشكر فرع  قفصه علي الخدمات التي يقدمها لل حرفا،ء والاخلاق الطيبه اشكر سي محمد الطاهر شاف الاجنس وسي ناضم وسي شكري ومدام منيه وفي الاداره شكر لمدام فاتن علي الاخلاق العاليه مع الحرفاء وعلي
+    - مولد نبوي مبارك علي الجميع
+    - كل الشكر لهاذا البنك الاسكان  وهو من اعز البنوك  وننصح الناس الكل تشارك في هاذا البنك متندموش 
+    - انحبكم يا ولدي
+    - انشاءالله ديمة رابحين ومتفوقين مع bh
+    - كل عام اشقاءنا في العربية السعودية بالف صحة و سعادة وعافية وكل سنة والامة الاسلامية بخير
+    - بالتوفيق انشاء الله
+    - شكرا جزيلا
+    - machallah
+    - mahleh mahleh tbarkalah alih ma chalah  
+    - من احسن البنوك  تعاملت معهم 
+    - bone chance
+    - felicitations najla je suis fier d’avoir travaile avec toi et d’avoir rencontre les femes talentueuses et engages de l’uib que tu decris si bien
+    - cetait genial 
+    - ça fait plaisir pour cete bele initiative
+    - ربي يحمي تونس
+    - بالتوفيق للجميع ربي معاكم
+    - انا  سنة مع فرع صفاقس شاكر وما ريت منهم كان حسن الاستقبال والمعاملة اما حاجة برك في صبان الشهاري ديما مخر انشاء الله تلقولها حل
+    - تحية خالصة كل الفاعلين ببنك تمويل المشاريع الصغري و المتوسطة و كل التقدير و شكرا لسيادتكم عن دوركم الفعال في الهيكلة و التاسيس و البناء الاقتصادي الديناميكي التونسي و شكرا كبيرا عن سعة صد
+
+
+- intent: complaint
+  examples: |
+    - منغيير ماننصحكم بالبانكة هاذي
+    - stb مدنين خدمات صفر
+    - هل يعقل الواحد يبقي يستني او مخدمولش القرض متع
+    - لا اعرف سبب وضع ارقام هواتفهم  مادام لا يردون علي المتصلين
+    - باحسرة علي فرع مدنين
+    - ya 7asra
+    - التجاري مرجلنا كبدنا
+    - mrejtoulna kebdetna
+    - بصراحة خدمة biat زيرو فسدت علخر les interets خلي واسكت وزيد حتي بش يجاوبوك قريب تبوسلهم ساقيهم وين ماشين بربي 
+    - كارثة من حيث الاستقبال والمعاملة فرع الشركة التونسية للبنك طبربة ولاية منوبة خلي من رءيسة الفرعياحسرة عليstb طبربة
+    - فرع خزندار معاملات صفر
+    - mou3amlet khayba
+    - اشبيهم اطلبا نحب استفسار شكرا
+    - البنوك و امتيازاتها مجعولة للقطاع العام اما احنا جماعة الخاص نتفرجو فيكم
+    - brabi   depuis  moins mjoibounich
+    - انا عندي شهرين وانا نستنة في قرض تحسين مسكن الوثايق الكل موجودة في الدوسي اين المصدقية الي تحكي عليها الهاتف 
+    - belehi chnia  famile hetha   jdida karahtouni fi rouhi w zid agence lkef  yhezou talifoun w yfahmouna
+    - بصراحة مع احتراماتي اخيب بانكا القصاصات علي بعضهم كل شهر لازم اكا  w  م فماش تجي تحكي معاه يدخلك منا يخرجك منا كل شهر تتمرج في صف كاسة وحدة تخدم علاش م فهمتش انا وحدة من الناس uib so
+    - براس اميمتكم اليوم خالي باش ينوح في بانكتو الي هو فيها  سنين وعلي شنيا علي  حق scaner مشالهم قالولو انت تعديت سقف الروج ومسال فما حل واحد نبعثولك autarosation ل siege ونشوفو تخيل
+    - belehi choufoulna hal fel distributeur atb f chenini gabes cvinadmisible tawa  jours mayemchich et a chaque fois depuis deux mois c la meme chose
+    - مايلقاوش الحلول للحرفاء باش يكمل امورو زيدو صعبوها علي الحريف   خدمات 
+    - هاكم مكلمتنيش
+    - surtout lagence du siege ykarhouk fel banka w ynadmouk  nhar eli  fih compte ymachiwek w yjibouk kima    bechmeta mouch menhar lowel ki tebda situation complique  el  lazem yetfalsfou w yemrjoulek kebdtek bref vive la tunisie et le service public
+    - بربي stb فرع التضامن بدلونا رءيسة الفرع راهي ما تعرش تحكي مع الناس و تعطل في الخدمة
+    - مشكلة ال  انه بنك لم يطور معاملاته مع الحرفاء ولم يواكب العصر في كثير من التقنيات
+    - منغيير ماننصحكم بالبانكة هاذي
+    - وقت تمشي تجبد يقلك ماكش حال كونت عندنا ما نجبدولكش
+    - بانكا كبيرة تبدي تريش فيك كي الدجاجة في كل تحريكة تلدغك وما يحبوكش تجبد بالشيك باش كل جبدة يشاركوك في الجبدان وينطرو منك حويجة
+    - الارسالية خدمة جيدة تنقص من الاكتضاض ، للاسف لازم السرعة في بعث الارسالية في ابانها ، ملاحظة انا مشترك في هذه الخدمة لكن عندها مدة طويلة ما يوصلني شيء
+    -  domage que limage deu cheque regle naparait plus sur laplication stbpourtant cetait une bele distinction par raport a dautres banques
+    - بالله شوفونلا شاف اجونس لجربة حومة السوق عامل في بيروه بلاكة متاع نيابة رءيس فرع
+    - بالله aplication digi carte digi credit الكلهم ميخدموش اشنيا حكاية عندهم جمعة هل يوجد توضيح
+    - علاش اخر العشية  ان شاء الله تتحسن الخدمة و تولي كل عملية و المساج متاعها في الوقت
+    - والمساج تقصو عليه في  لواه هذا الكل كل نهارين  مساجات في شهر تلقي  قصاص مساجات
+    - صبولنا الشهاري يرحم والديكم.
+    - عامل معاكم بروجي افينير مشيت خلصت فلوس قباضه قرابه  ويقولولي في  ايام نصبوهملك للاسف تو شهر  وايام ومازالو حسبي الله ونعمه الوكيل في كل مسءول خلاني نطلب في حقي
+    - هل يعقل الواحد يبقي  يستني او مخدمولش القرض متع
+    - شهر مضي ولم يقع صرف مستحقات projet avenir لماذا و الرقم الموضوع علي ذمة الحرفاء لا يعمل
+    - سلام عندي بروجي افنير عنده  مصبوش علاش
+    - nkalim fi agence jerba w tozeur andi un mois w mayjawbouche tel
+    - brabi kifech debit  iwali debit  men ghir matkoun thama hata operation
+    - اشبيه الرقم الاخضر لا يمكن الحصول  اش الحالة
+    - انا عندي مندا مشيت باش نجبدها بقيت نهارين نمشي ونجي ومن بعد قالي السيستام مسكر مانجمش نحبدلك الماندا
+    - مشيت مرتين باش نصرف ،مرة يستناو في maj tx de change في البوسطة صرفتهاومرة الريزو طايح 
+    - brabi notlb   myjeweb
+    - وكل ما تمشي تجبد يقلك ماعناش اليوم ريزو طايح
+    - نمشي يقولولي الريزو ما فماش
+    - المشكلة
+    - reclamation bloque
+    - ياخي واحد ما ينجمش يخرج extrait الي ما يرجع للفرع  تو هذا حديث يعني نمشي  كلم باش نخرج ورقة
+    - لا بد من فتح فرع بنكي بمدينة ماطر هناك عديد التشكيات من الحرفاء في ماطر غزالة ،سجنان نصف ولاية بنزرت دون فرع بنك الامان
+    - فهمونا كيفاش وعلاش قصاص  يتكرر حتي خمسة مرات في الشهر وعلاش تقصو القرض في الروج كيف تءخر الشهرية اشنوا ذنبنا
+    - سلام عليكم نحب نعرف علاش فرع المدينة سوسة  امور سمحني علي العباره عمال لتالي اني منخرط اكثر من  عام وخاص في  سنوات الاخيرة اليوم  الي الساعة  لا يوجد احد يعمل
+    - لماذ لم تجيبوني يلا
+    - للاسف خدمات بنك متدنية وهناك شبه اجماع من الحرفاء علي ذلك ومن المفروض تكون باهية ، السبب غير معروف
+    - هههههه اخر مره بش نجبد western ساعة كاملة شاد الصف، بش الموظفة تاعكم تهزني و تحطني و تقلي ليوم ماعناش western انا حريف عندكم من  سنين و ندخللكم فال devise اما لرداءة الخدمات في بعض و غلاءها و عدم التمكين الحرفاء في امتيازات بسيطه، يخليني نفكر معادش نتعامل معاكم
+    - معاملة سيءة جدا من و قت ترفض  بش تعطيك فلوس بتعلة انك لا ترتدي بافات في حين انا امامي شخص بدون بافات لمدة ربع ساعة  وهي تضحك معاه  و قامت باسداء الخدمات له و حين حا
+    - معتمدية المظيلة و لاية قفصة في امس الحاجة لفرع بنكي
+    - ena  carte tejbed fi rouge plafond   dt  tsab salaire  nejbed biha tgoli vous avez depasez le mantont autorise chniya  belehi
+    - حسبي الله ونعم الوكيل في مدير فرع بنك الاسكان بالكاف
+    - بالله طبقوا قرار البنك المركزي ويزيو ملمماطله راه عيب احنا حرفاءكم وراكم باش تخسروا برشه منهم في المستقبل  وانتوما تعرفوا  اوقفوا معانا ويزي من لغة صنف
+    - brabi kol chehar yelzem ykosou el karedh w tarfou trajouh mais c est du n importe koi yamlou chwaya effort brabi
+    - ملا حالة كارثية اليوم في فرع  الموزع بالسوايع مايمشيشوالصف حدث ولا حرج
+    - hiya hiya  mare de la seance unique on va atendre encore 
+    - علاش وليتو تبطاو
+
+
+- intent : application
+  examples: |
+    - ممكن تفسيرعلي تطبيق uib mobile كيف يعمل وكيفية معرفة code  client
+    - comision service atijari mobile 
+    - frais anuel mtaa l application
+    - l aplication my biat ne marche plus
+    - l aplication amen mobile gratuite ou non
+    - belehi chkoun andou probleme fel aplication digi epargne  nji   login wala mot de pase ghaltin w houma 
+    - نحب نقدم شكوي ب siege   قفصة صدقوني اخر سياج يسيب فلوس الموظفين  يا مدير stb شوف حل مع مدير سياج stb قفصة والله لعظيم اخر مرة سيبو شهاري  متاع ليل نهار الثلاثاء
+    - السلام عليكم باللاهي شبيه service stb net ما يخدمش عندو برشا بال aplication stb 
+    - بالله شوفولنا حل لل stb net راهو اكثر من جمعة حابسة
+    - stb bank شنية حكاية خدمة stbnet toujours un probleme est survenu علي اساس احسن بنك رقمي في اف ريقيا شوفو حل لمشاكل الخدمات متاعكم 
+    - brabi andi  mochkla fi appplication
+    - brabi laplication mobile  atijari bank tunisie je veux savoir coment consulter mon solde sans partir au banque
+    - slm  problem fi biatnet
+    - بربي وقتاش يرجع سرفيس westernunion في فرع الشرقية   عندو اكثر من شهرين ديما موشdisponible
+    - نحب نعرف علاش حتي فرع ما يجاوب ع التلفونات صلت  مره لا حياة لمن تنادي غريبه فيها البانكه
+    - bilehi laplication  alech dima retard moch kima lbonouk lokrin ken ma fihech dwa kali  alech haka
+    - svp laplication amen mobile ne fonctione pas deux jours
+    - moneygram في فروعكم غير متوفر ارجو التحيين
+    - chbiha l aplication verouile
+    - je veux savoir y’a t il une aplication de la banque de l’habitat par lequel je peux gerer mon compte de l’etranger merci
+    - svp l ap btl net sur android  crash et ne souvre pas
+
+- intent: greet
+  examples: |
+    - عسلامة
+    - صباح الخير
+    - hi
+    - slm
+    - bjr
+    - bnjr
+    - bonjour
+    - صباح النور
+    - السلام عليكم
+    - سلام
+    - السلام
+    - Hi there
+    - ورحمه الله وبركاته
+    - How are you
+    - Is anyone there?
+    - Hey
+    - Hola
+    - Hello
+    - Good day 
+    - sbe7 l 5ir
+    - sbeh nour
+    - sbeh ennour
+    - sbeh l
+    - ورحمة الله 
+    - selem
+    - مرحبا 
+    - salutation
+    - bonsoir
+    - salut
+    
+- intent: goodbye
+  examples: |
+    - إلى اللقاء
+    - شكراً
+    - يعطيك الصحة
+    - bye
+    - beslema
+    - merci
+    - bonne journee
+
+- intent: bot_challenge
+  examples: |
+    - Are you a bot ?
+    - انتي شكون ؟
+
+- intent: tafrika
+  examples: |
+    - give me a joke
+    - nheb nokta
+    - nokta
+    - tafrika
+    - nheb nathhek
+    - nadhhek
+    - dala3ni
+
+- intent: angry
+  examples: |
+    - tghachacht
+    - metghachech
+    - ena tghachacht
+
+
+
+
+- intent: credit_risk
+  examples: |
+    - nheb na3ref l credit risk mte3i
+    - famma risk enni ma nekhedhsh credit
+    - kif nheb nekhou credit tnajmou ma ta3tiwnish?
+
+- intent: inform
+  examples: |
+    - ena najjem nkhalles 3ala [3](duration_in_month) chhoor
+    - nheb nekhedh l 9ardh ala [5](duration_in_month) ochhra
+    - ena l 9ardh mtei nheb nkhalsou ala [9](duration_in_month) chhour
+    - nheb nekhedh cridi b [5000](credit_amount)
+    - montant li nheb alih [62000](credit_amount)
+    - ena nheb ala kridi b [85000](credit_amount)
+    - [20](duration_in_month) 
+    - jit l tounes andi [18](present_residence_since) sne
+    - tawa bedhabt bahdhekom seken tawa andi [5](present_residence_since) chhour
+    - 3andi [30](present_residence_since) sne seken fi tounes
+    - seken [20](present_residence_since) sne fil bled
+    - walahi khdhit bedhabt [3](number_credit) 9roudhat
+    - 5thit [2](number_credit) 9ourouth men 3andkom
+    - 3andi [3](number_credit) kouroudh 
+    - inajmou [2](number_people_maintenance) mennes ikhalsou aleya
+    - andi [4](number_people_maintenance) mennes yodhmnou feya w inajmou ikhalsou ken ena ma nkhalasshi
+
+- intent: ask_id
+  examples: |
+    - what's the conversation id?
+    - id
+    - What is the ID of this conversation?
+    - How do I send a POST request to this conversation?

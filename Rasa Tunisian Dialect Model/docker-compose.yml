@@ -1,0 +1,32 @@
+version: '3.1'
+services:
+  bojji:
+    container_name: Bojji_10
+    image: marwet/bojji
+    ports:
+      - 8080:5005
+    volumes:
+      - ./:/app
+    command:
+      - run
+      - --enable-api
+      - --cors
+      - "*"
+  app:
+    image: marwet/bojji_actions
+    expose:
+      - "5055"
+    ports: 
+      - 5055:5055
+    command:
+      - run
+      - actions
+    volumes:
+      - ./actions:/app/actions
+  #   volumes:
+  #     - ChatBot_1:/app
+volumes:
+  ChatBot:
+    external: true
+  # ChatBot_1:
+  #   external: true

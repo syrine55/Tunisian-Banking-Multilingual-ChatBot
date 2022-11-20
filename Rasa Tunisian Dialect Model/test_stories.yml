@@ -1,0 +1,214 @@
+#### This file contains tests to evaluate that your bot behaves as expected.
+#### If you want to learn more, please see the docs: https://rasa.com/docs/rasa/testing-your-assistant
+
+stories:
+
+
+- story: house loan
+  steps:
+  - user: |
+      ممكن قرض نكملو به الدار
+    intent: loan_house
+  - action: utter_loan_house
+  - checkpoint: ask_feedback
+
+- story: car loan
+  steps:
+  - user: |
+        انا نحب ناخو كرهبة نحب اكثر توضيح
+    intent: loan_car
+  - action: utter_loan_car
+  - checkpoint: ask_feedback
+
+- story: land loan
+  steps:
+  - user: |
+      نحب نشري دار شنوي نعمل
+    intent: loan_land
+  - action: utter_loan_land
+  - checkpoint: ask_feedback
+
+
+- story: loan
+  steps:
+  - user: |
+     انحب ناخذ قرض
+    intent: loan
+  - checkpoint: utter_feedback
+
+- story: card
+  steps:
+  - user: |
+     بالله كارت تكنولوجي تشري من اي موقع في العالم ولا
+    intent: card
+  - action: utter_card
+  - checkpoint: ask_feedback
+
+- story: account
+  steps:
+  - user: |
+     شنوة الاوراق اللازمين باش نحب كونت
+    intent: account
+  - action: utter_account
+  - checkpoint: ask_feedback
+
+- story: payment
+  steps:
+  - user: |
+     قداش نخلص كل شهر
+    intent: payment
+  - action: utter_payment
+  - checkpoint: ask_feedback
+
+  - story: application
+  steps:
+  - user: |
+     brabi andi  mochkla fi appplication
+    intent: application
+  - action: utter_application
+  - checkpoint: ask_feedback
+
+  
+
+- story: negative feedback
+  steps:
+  - checkpoint: ask_feedback
+  - action: utter_ask_feedback
+  - user: |
+      أي
+    intent: affirm
+  - user: |
+      بصراحة خدمة biat زيرو فسدت علخر les interets خلي واسكت وزيد حتي بش يجاوبوك قريب تبوسلهم ساقيهم وين ماشين بربي 
+    intent: complaint
+  - action: utter_complaint
+
+- story: positive feedback
+  steps:
+  - checkpoint: ask_feedback
+  - action: utter_ask_feedback
+  - user: |
+      ey
+    intent: affirm
+  - user: |
+      احلي بنك واحلي فرع دار شعبان ماريت منهم كان الخير من اول شهرية سنة  الي يومنا هذا الشهرية في وقتها والي نطلب ناخو شكرا لكم من القلب
+    intent: feedback
+  - action: utter_feedback
+
+- story: no feedback
+  steps:
+  - checkpoint: ask_feedback
+  - action: utter_ask_feedback
+  - user: |
+      le
+    intent: deny
+  - action: utter_ok
+
+- story: ask for info
+  steps:
+  - user: |
+       انحب ناخذ قرض
+    intent: demande_info
+  - action: utter_demande_info
+  - checkpoint: ask_feedback
+
+- story: ask for info time
+  steps:
+  - user: |
+      بربي تخدمو غدوة فرع المروج
+    intent: demande_info_time
+  - action: utter_demande_info_time
+  - checkpoint: ask_feedback
+
+- story: ask for info card
+  steps:
+  - user: |
+     سعر كل بطاقة و امتيازاتها
+    intent: demande_info_card
+  - action: utter_demande_info_card
+  - checkpoint: ask_feedback
+
+- story: project loan
+  steps:
+  - user: |
+      انا نحب تاخذ قرض باش نحل مشروع كيفاش تساعدوني وقداش يبقي
+    intent: projet_loan
+  - action: utter_projet_loan
+  - checkpoint: ask_feedback
+
+- story: documents loan
+  steps:
+  - user: |
+     بربي اشنوه الاوراق الازمة لطلب قرض مع العلم انني حريف من زمان    
+    intent: documents_loan
+  - action: utter_documents_loan
+  - checkpoint: ask_feedback
+
+- story: hajj story
+  steps:
+  - user: |
+     نحب نمشي نحج
+    intent: hajj
+  - action: utter_hajj
+  - checkpoint: ask_feedback
+
+- story: education loan
+  steps:
+  - user: |
+     هل يوجد تمويل لاكمال الدراسة بالخارح بعد الحصول علي موافقة احدي الجامعاتو تحديدا في فرنسا
+    intent: loan_education
+  - action: utter_loan_education
+  - checkpoint: ask_feedback
+
+- story: 9assan 9ardh
+  steps:
+  - user: |
+     قرض متابع  قداه اتقصوا من الشهرية اذا كان لشهرية
+    intent: 9assan_9ardh
+  - action: utter_9assan_9ardh
+  - checkpoint: ask_feedback
+
+- story: loan transfer
+  steps:
+  - user: |
+     انا عندي قرض من بانك اخرتنجمو تشروه
+    intent: transfer_loan
+  - action: utter_transfer_loan
+  - checkpoint: ask_feedback
+
+#########
+
+
+- story: say goodbye
+  steps:
+  - user: |
+      شكراً
+    intent: goodbye
+  - action: utter_goodbye
+
+- story: bot challenge
+  steps:
+  - user: |
+      are you a bot?
+    intent: bot_challenge
+  - action: utter_iamabot
+
+- story: repeate hello
+  steps:
+  - user: |
+      slm
+    intent: greet
+  - action: utter_greet
+
+- story: want joke
+  steps:
+  - user: |
+      nheb nokta
+    intent: tafrika
+  - action: utter_tafrika
+
+- story: angry
+  steps:
+  - user: |
+      tghachacht
+    intent: angry
+  - action: utter_angry

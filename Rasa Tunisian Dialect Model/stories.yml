@@ -1,0 +1,128 @@
+version: "3.1"
+
+stories:
+
+- story: house loan
+  steps:
+  - intent: loan_house
+  - action: utter_loan_house
+  - checkpoint: ask_feedback
+
+- story: car loan
+  steps:
+  - intent: loan_car
+    entities:
+    - car_type: iveco
+      role: from
+  - action: utter_loan_car
+  - checkpoint: ask_feedback
+
+- story: land loan
+  steps:
+  - intent: loan_land
+  - action: utter_loan_land
+  - checkpoint: ask_feedback
+
+- story: project loan
+  steps:
+  - intent: projet_loan
+  - action: utter_projet_loan
+  - checkpoint: ask_feedback
+
+- story: documents loan
+  steps:
+  - intent: documents_loan
+  - action: utter_documents_loan
+  - checkpoint: ask_feedback
+
+- story: hajj story
+  steps:
+  - intent: hajj
+  - action: utter_hajj
+  - checkpoint: ask_feedback
+
+- story: education loan
+  steps:
+  - intent: loan_education
+  - action: utter_loan_education
+  - checkpoint: ask_feedback
+
+- story: 9assan 9ardh
+  steps:
+  - intent: 9assan_9ardh
+  - action: utter_9assan_9ardh
+  - checkpoint: ask_feedback
+
+- story: loan transfer
+  steps:
+  - intent: transfer_loan
+  - action: utter_transfer_loan
+  - checkpoint: ask_feedback
+
+- story: loan
+  steps:
+  - intent: loan
+  - action: utter_loan
+  - checkpoint: ask_feedback
+
+
+- story: negative feedback
+  steps:
+  - checkpoint: ask_feedback
+  - action: utter_ask_feedback
+  - intent: affirm
+  - intent: complaint
+  - action: utter_complaint
+
+- story: positive feedback
+  steps:
+  - checkpoint: ask_feedback
+  - action: utter_ask_feedback
+  - intent: affirm
+  - intent: feedback
+  - action: utter_feedback
+
+- story: no feedback
+  steps:
+  - checkpoint: ask_feedback
+  - action: utter_ask_feedback
+  - intent: deny
+  - action: utter_ok
+
+- story: ask for info
+  steps: 
+  - intent: demande_info
+  - action: utter_demande_info
+  - checkpoint: ask_feedback
+
+- story: ask for info time
+  steps: 
+  - intent: demande_info_time
+  - action: utter_demande_info_time
+  - checkpoint: ask_feedback
+
+- story: ask for info card
+  steps: 
+  - intent: demande_info_card
+  - action: utter_demande_info_card
+  - checkpoint: ask_feedback
+
+
+- story: account
+  steps:
+  - intent: account
+  - action: utter_account
+  - checkpoint: ask_feedback
+
+
+- story: application
+  steps: 
+  - intent: application
+  - action: utter_application
+  - checkpoint: ask_feedback
+
+- story: card
+  steps:
+  - intent: card
+  - action: utter_card
+  - checkpoint: ask_feedback
