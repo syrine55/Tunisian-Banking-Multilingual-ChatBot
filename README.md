@@ -15,3 +15,14 @@ with services consisting in :<br>
 ### ⚙️technologies used:
 NLP - Python - Rasa - Docker- Keras - NLTK - Spacy - OpenCV
 Node.Js - Quasar - Sklearn - Heroku - MongoDB - Plotly
+
+
+
+<br />
+<br />
+<br />
+
+## 🎯 Here is the Scientific Poster of the full Project :
+<br />
+
+![alt text](poster.jpg?raw=true)
